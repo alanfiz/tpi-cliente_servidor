@@ -18,8 +18,8 @@ public class AltaClienteBean {
 
     private Cliente cliente;
 
-    @PostConstruct
-    public void init(){cliente = new Cliente();}
+//    @PostConstruct
+//    public void init(){cliente = new Cliente();}
 
     public Cliente getCliente() {
         return cliente;
