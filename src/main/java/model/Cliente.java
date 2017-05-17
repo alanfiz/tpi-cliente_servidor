@@ -35,7 +35,7 @@ public class Cliente extends BaseLongEntity {
 
         @Column (name = "telefonoCliente" )
         @NotNull
-        @Size(min = 8,max = 15)
+        //@Size(min = 8,max = 15)
         private Integer telefonoCliente;
 
         @Column (name = "emailCliente", unique = true)
@@ -77,7 +77,7 @@ public class Cliente extends BaseLongEntity {
 
         @Column(name = "dniCliente", unique = true)
         @NotNull
-        @Size(max = 8)
+        //@Size(min = 7, max = 9)
         private Integer dni;
 
         //Relaciones de tabla

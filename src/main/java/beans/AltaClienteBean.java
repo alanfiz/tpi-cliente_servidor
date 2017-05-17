@@ -18,8 +18,8 @@ public class AltaClienteBean {
 
     private Cliente cliente;
 
-//    @PostConstruct
-//    public void init(){cliente = new Cliente();}
+    @PostConstruct
+    public void init(){this.cliente = new Cliente("usuario", "pass", "nom", "ape", 00000000, "email@email.com", "calle", 000, "infoadicional", "pais", "provincia", "ciudad", 0000, 00000000);}
 
     public Cliente getCliente() {
         return cliente;
@@ -31,7 +31,7 @@ public class AltaClienteBean {
 
     public void agregarCliente(){
         try {
-            clientedao.persist(this.cliente);
+            clientedao.merge(this.cliente);
         } catch (DaoException e) {
             e.printStackTrace();
         }
