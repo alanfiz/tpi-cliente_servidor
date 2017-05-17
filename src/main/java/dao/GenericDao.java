@@ -10,16 +10,10 @@ public interface GenericDao<T, PK extends Serializable>{
 
 	List<T> findAll() throws DaoException;
 
-//	List<T> findEntries(int startPosition, int maxResult) throws DaoException;
-
 	T merge(T persistentObject) throws DaoException;
 
 	T persist(T transientObject) throws DaoException;
 
-//	void refresh(T persistentObject) throws DaoException;
-
 	void remove(T persistentObject) throws DaoException;
 
-//	long count() throws DaoException;
-	
 }

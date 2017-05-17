@@ -41,15 +41,6 @@ public class AbstractJpaDaoImpl<T, PK extends Serializable> implements
 
 	}
 
-//	@Override
-//	public List<T> findEntries(int startPosition, int maxResult) {
-//		TypedQuery<T> typedQuery = this.createTypedQuery();
-//		typedQuery.setFirstResult(startPosition);
-//		typedQuery.setMaxResults(maxResult);
-//		return typedQuery.getResultList();
-//
-//	}
-
 	@Override
 	public T merge(T persistentObject) throws DaoException {
 		try {
@@ -76,10 +67,6 @@ public class AbstractJpaDaoImpl<T, PK extends Serializable> implements
 		}
 	}
 
-//	@Override
-//	public void refresh(T persistentObject) throws DaoException {
-//		entityManager.refresh(persistentObject);
-//	}
 
 	@Override
 	public void remove(T persistentObject) throws DaoException {
@@ -95,22 +82,6 @@ public class AbstractJpaDaoImpl<T, PK extends Serializable> implements
 			throw new DaoException(e.getCause());
 		}
 	}
-
-//	public long count() {
-//
-//		Class<T> entityClazz = getPersistentClass();
-//
-//		CriteriaBuilder criteriaBuilder = entityManager.getCriteriaBuilder();
-//
-//		CriteriaQuery<Long> criteriaQuery = criteriaBuilder
-//				.createQuery(Long.class);
-//
-//		criteriaQuery.select(criteriaBuilder.count(criteriaQuery
-//				.from(entityClazz)));
-//
-//		return (Long) entityManager.createQuery(criteriaQuery)
-//				.getSingleResult();
-//	}
 
 	private TypedQuery<T> createTypedQuery() {
 		Class<T> persistentClass = getPersistentClass();
