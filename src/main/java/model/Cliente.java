@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Email;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -35,7 +37,8 @@ public class Cliente extends BaseLongEntity {
 
         @Column (name = "telefonoCliente" )
         @NotNull
-        //@Size(min = 8,max = 15)
+        @Min(value = 10000000)
+        @Max(value = 999999999)
         private Integer telefonoCliente;
 
         @Column (name = "emailCliente", unique = true)
@@ -77,7 +80,8 @@ public class Cliente extends BaseLongEntity {
 
         @Column(name = "dniCliente", unique = true)
         @NotNull
-        //@Size(min = 7, max = 9)
+        @Min(value = 1000000)
+        @Max(value = 99999999)
         private Integer dni;
 
         //Relaciones de tabla
@@ -108,7 +112,7 @@ public class Cliente extends BaseLongEntity {
                 this.dni = dni;
         }
 
-        @NotNull
+        //@NotNull
         public String getUsuarioCliente() {
                 return usuarioCliente;
         }
@@ -117,7 +121,7 @@ public class Cliente extends BaseLongEntity {
                 this.usuarioCliente = usuarioCliente;
         }
 
-        @NotNull
+        //@NotNull
         public String getPasswordCliente() {
                 return passwordCliente;
         }
@@ -126,7 +130,7 @@ public class Cliente extends BaseLongEntity {
                 this.passwordCliente = passwordCliente;
         }
 
-        @NotNull
+       // @NotNull
         public String getNombreCliente() {
                 return nombreCliente;
         }
@@ -135,7 +139,7 @@ public class Cliente extends BaseLongEntity {
                 this.nombreCliente = nombreCliente;
         }
 
-        @NotNull
+        //@NotNull
         public String getApellidoCliente() {
                 return apellidoCliente;
         }
@@ -144,7 +148,7 @@ public class Cliente extends BaseLongEntity {
                 this.apellidoCliente = apellidoCliente;
         }
 
-        @NotNull
+        //@NotNull
         public Integer getTelefonoCliente() {
                 return telefonoCliente;
         }
@@ -153,7 +157,7 @@ public class Cliente extends BaseLongEntity {
                 this.telefonoCliente = telefonoCliente;
         }
 
-        @NotNull
+       // @NotNull
         public String getEmailCliente() {
                 return emailCliente;
         }
@@ -162,7 +166,7 @@ public class Cliente extends BaseLongEntity {
                 this.emailCliente = emailCliente;
         }
 
-        @NotNull
+      //  @NotNull
         public String getCalleCliente() {
                 return calleCliente;
         }
@@ -171,7 +175,7 @@ public class Cliente extends BaseLongEntity {
                 this.calleCliente = calleCliente;
         }
 
-        @NotNull
+        //@NotNull
         public Integer getNumeroCalleCliente() {
                 return numeroCalleCliente;
         }
@@ -188,7 +192,7 @@ public class Cliente extends BaseLongEntity {
                 this.infoAdicionalCliente = infoAdicionalCliente;
         }
 
-        @NotNull
+        //@NotNull
         public String getPaisCliente() {
                 return paisCliente;
         }
@@ -197,7 +201,7 @@ public class Cliente extends BaseLongEntity {
                 this.paisCliente = paisCliente;
         }
 
-        @NotNull
+       // @NotNull
         public String getProvinciaCliente() {
                 return provinciaCliente;
         }
@@ -206,7 +210,7 @@ public class Cliente extends BaseLongEntity {
                 this.provinciaCliente = provinciaCliente;
         }
 
-        @NotNull
+       // @NotNull
         public String getCiudadCliente() {
                 return ciudadCliente;
         }
@@ -215,7 +219,7 @@ public class Cliente extends BaseLongEntity {
                 this.ciudadCliente = ciudadCliente;
         }
 
-        @NotNull
+      //  @NotNull
         public Integer getCodpostCliente() {
                 return codpostCliente;
         }
@@ -224,7 +228,7 @@ public class Cliente extends BaseLongEntity {
                 this.codpostCliente = codpostCliente;
         }
 
-        @NotNull
+       // @NotNull
         public Integer getDni() {
                 return dni;
         }
