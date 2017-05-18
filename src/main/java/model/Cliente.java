@@ -37,9 +37,9 @@ public class Cliente extends BaseLongEntity {
 
         @Column (name = "telefonoCliente" )
         @NotNull
-        @Min(value = 10000000)
-        @Max(value = 999999999)
-        private Integer telefonoCliente;
+        @Min(value = 1000000000)
+        @Max(value = 9999999999999L)
+        private Long telefonoCliente;
 
         @Column (name = "emailCliente", unique = true)
         @NotNull
@@ -95,7 +95,7 @@ public class Cliente extends BaseLongEntity {
         public Cliente() {
         }
 
-        public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull Integer telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
+        public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull Long telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
                 this.usuarioCliente = usuarioCliente;
                 this.passwordCliente = passwordCliente;
                 this.nombreCliente = nombreCliente;
@@ -149,11 +149,11 @@ public class Cliente extends BaseLongEntity {
         }
 
         //@NotNull
-        public Integer getTelefonoCliente() {
+        public Long getTelefonoCliente() {
                 return telefonoCliente;
         }
 
-        public void setTelefonoCliente(@NotNull Integer telefonoCliente) {
+        public void setTelefonoCliente(@NotNull Long telefonoCliente) {
                 this.telefonoCliente = telefonoCliente;
         }
 
