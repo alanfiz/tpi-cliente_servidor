@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>ABM Cliente</title>
+</h:head>
+<h:body>
+    <h2>ABM Cliente</h2>
+    <h:form>
+        <h:dataTable id="tablacliente" value="#{abmclientebean.clientes}" var="cliente" >
+            <h:column>
+                <f:facet name="header">Nombre</f:facet>
+                <h:inputText value="#{cliente.nombreCliente}"
+                             rendered="#{cliente.editable}" />
+                <h:outputText value="#{cliente.nombreCliente}"
+                              rendered="#{!cliente.editable}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Apellido</f:facet>
+                <h:inputText value="#{cliente.apellidoCliente}"
+                             rendered="#{cliente.editable}" />
+                <h:outputText value="#{cliente.apellidoCliente}"
+                              rendered="#{!cliente.editable}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">dni</f:facet>
+                <h:inputText value="#{cliente.dni}"
+                             rendered="#{cliente.editable}" />
+                <h:outputText value="#{cliente.dni}"
+                              rendered="#{!cliente.editable}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">email</f:facet>
+                <h:inputText value="#{cliente.emailCliente}"
+                             rendered="#{cliente.editable}" />
+                <h:outputText value="#{cliente.emailCliente}"
+                              rendered="#{!cliente.editable}" />
+            </h:column>
+            <h:column>
+                <f:facet name="header">Editar..</f:facet>
+                <h:commandButton value="Editar"
+                                 action="#{abmclientebean.editCliente}"
+                                 rendered="#{!cliente.editable}">
+                    <f:setPropertyActionListener
+                            target="#{abmclientebean.cliente}" value="#{cliente}" />
+                </h:commandButton>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Borrar</f:facet>
+                <h:commandButton value="Borrar"
+                                 actionListener="#{abmclientebean.removeCliente(cliente)}">
+                    <f:ajax render="@all"/>
+                </h:commandButton>
+            </h:column>
+        </h:dataTable>
+        <h:commandButton value="Grabar"
+                         actionListener="#{abmclientebean.saveCliente(cliente)}" >
+                         <f:ajax render="@all"/>
+        </h:commandButton>
+
+    </h:form>
+</h:body>
+
+</html>

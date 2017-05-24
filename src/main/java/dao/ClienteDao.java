@@ -3,6 +3,6 @@ package dao;
 import model.Cliente;
 
 
-public interface ClienteDao extends GenericDao<Cliente, Integer> {
+public interface ClienteDao extends GenericDao<Cliente, Long> {
 
 }

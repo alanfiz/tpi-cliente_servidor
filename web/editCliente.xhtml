@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Edit Your Record</title>
+    <h:outputStylesheet name="/css/bootstrap.min.css"/>
+</h:head>
+<h:body>
+    <h:form id="form" class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <h2 style="text-align: center" class="col-sm-4">Edit Your Record</h2>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Usuario Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="usuarioClienteIt" value="#{abmclientebean.cliente.usuarioCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Password Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="passwordClienteIt" value="#{abmclientebean.cliente.passwordCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Nombre Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="nombreClienteIt" value="#{abmclientebean.cliente.nombreCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Apellido Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="apellidoClienteIt" value="#{abmclientebean.cliente.apellidoCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Telefono Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="telefonoClienteIt" value="#{abmclientebean.cliente.telefonoCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Email Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="emailClienteIt" value="#{abmclientebean.cliente.emailCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Calle Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="calleClienteIt" value="#{abmclientebean.cliente.calleCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">NumeroCalle Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="numeroCalleClienteIt" value="#{abmclientebean.cliente.numeroCalleCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">InfoAdicional Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="infoAdicionalClienteIt" value="#{abmclientebean.cliente.infoAdicionalCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Pais Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="paisClienteIt" value="#{abmclientebean.cliente.paisCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Provincia Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="provinciaClienteIt" value="#{abmclientebean.cliente.provinciaCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Ciudad Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="ciudadClienteIt" value="#{abmclientebean.cliente.ciudadCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">CodPost Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="codPostClienteIt" value="#{abmclientebean.cliente.codpostCliente}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-2">Dni Cliente</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="dniClienteIt" value="#{abmclientebean.cliente.dni}" class="form-control"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+                <center><h:commandButton value="Editar" action="#{abmclientebean.updateCliente}"
+                                         class="btn btn-primary" style="width: 80px;"></h:commandButton></center>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>

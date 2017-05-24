@@ -37,8 +37,8 @@ public class Cliente extends BaseLongEntity {
 
         @Column (name = "telefonoCliente" )
         @NotNull
-        @Min(value = 1000000000)
-        @Max(value = 9999999999999L)
+        //@Min(value = 1000000000L)
+        //@Max(value = 9999999999999L)
         private Long telefonoCliente;
 
         @Column (name = "emailCliente", unique = true)
@@ -84,13 +84,23 @@ public class Cliente extends BaseLongEntity {
         @Max(value = 99999999)
         private Integer dni;
 
+        boolean editable;
+
+
         //Relaciones de tabla
 
-        @OneToMany(fetch = FetchType.LAZY)
+        @OneToMany()
         @JoinColumn(name = "id_pedido")
         private List<Pedido> pedidos;
 
         //Metodos
+
+        public boolean isEditable() {
+            return editable;
+        }
+        public void setEditable(boolean editable) {
+            this.editable = editable;
+        }
 
         public Cliente() {
         }
@@ -244,4 +254,26 @@ public class Cliente extends BaseLongEntity {
         public void setPedidos(List<Pedido> pedidos) {
                 this.pedidos = pedidos;
         }
+
+    @Override
+    public String toString() {
+        return "Cliente{" +
+                "usuarioCliente='" + usuarioCliente + '\'' +
+                ", passwordCliente='" + passwordCliente + '\'' +
+                ", nombreCliente='" + nombreCliente + '\'' +
+                ", apellidoCliente='" + apellidoCliente + '\'' +
+                ", telefonoCliente=" + telefonoCliente +
+                ", emailCliente='" + emailCliente + '\'' +
+                ", calleCliente='" + calleCliente + '\'' +
+                ", numeroCalleCliente=" + numeroCalleCliente +
+                ", infoAdicionalCliente='" + infoAdicionalCliente + '\'' +
+                ", paisCliente='" + paisCliente + '\'' +
+                ", provinciaCliente='" + provinciaCliente + '\'' +
+                ", ciudadCliente='" + ciudadCliente + '\'' +
+                ", codpostCliente=" + codpostCliente +
+                ", dni=" + dni +
+                ", editable=" + editable +
+                ", pedidos=" + pedidos +
+                '}';
+    }
 }

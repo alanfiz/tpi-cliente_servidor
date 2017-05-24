@@ -30,12 +30,14 @@ public class AltaClienteBean {
         this.cliente = cliente;
     }
 
-    public void agregarCliente(){
+    public String agregarCliente(){
         try {
-            clientedao.merge(this.cliente);
+            clientedao.persist(this.cliente);
+
         } catch (DaoException e) {
             e.printStackTrace();
         }
 
+        return "/index.xhtml?faces-redirect=true";
     }
 }

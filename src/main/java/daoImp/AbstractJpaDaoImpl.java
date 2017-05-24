@@ -48,9 +48,9 @@ public class AbstractJpaDaoImpl<T, PK extends Serializable> implements
 			entityManager.flush();
 			return mergeEntity;
 		} catch (PersistenceException e) {
-			throw new DaoException(e.getCause());
+			throw new DaoException(e.getMessage());
 		} catch (Exception e) {
-			throw new DaoException(e.getCause());
+			throw new DaoException(e.getMessage());
 		}
 	}
 

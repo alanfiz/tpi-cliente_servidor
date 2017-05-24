@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   <!--<f:view>-->
+      <!--<h:outputLabel value="Hello, world"/>-->
+   <!--</f:view>-->
+<h:head>
+   <h:outputLabel value="ALTA CLIENTE"></h:outputLabel>
+
+</h:head>
+<h:body>
+   <h:form>
+      <h:messages id="msgs"/>
+      <h:panelGrid columns="3" styleClass="ui-panelgrid">
+         <h:outputLabel value="Usuario"/>
+         <h:inputText id="usuario"
+                      value="#{AltaClienteBean.cliente.usuarioCliente}"
+                      required="true"
+                      requiredMessage="Usuario es un campo requerido."/>
+         <h:message for="usuario" styleClass="errorText"/>
+
+         <h:outputLabel value="Password"/>
+         <h:inputText id="password"
+                      value="#{AltaClienteBean.cliente.passwordCliente}"
+                      required="true"
+                      requiredMessage="Password es un campo requerido."/>
+         <h:message for="password" styleClass="errorText"/>
+
+         <h:outputLabel value="Nombre"/>
+         <h:inputText id="nombre"
+                      value="#{AltaClienteBean.cliente.nombreCliente}"
+                      required="true"
+                      requiredMessage="Nombre es un campo requerido."/>
+         <h:message for="nombre" styleClass="errorText"/>
+
+         <h:outputLabel value="Apellido"/>
+         <h:inputText id="apellido"
+                      value="#{AltaClienteBean.cliente.apellidoCliente}"
+                      required="true"
+                      requiredMessage="Apellido es un campo requerido."/>
+         <h:message for="apellido" styleClass="errorText"/>
+
+         <h:outputLabel value="Telefono"/>
+         <h:inputText id="telefono"
+                      value="#{AltaClienteBean.cliente.telefonoCliente}"
+                      required="true"
+                      requiredMessage="Telefono es un campo requerido."/>
+         <h:message for="telefono" styleClass="errorText"/>
+
+         <h:outputLabel value="Email"/>
+         <h:inputText id="email"
+                      value="#{AltaClienteBean.cliente.emailCliente}"
+                      required="true"
+                      requiredMessage="Email es un campo requerido."/>
+         <h:message for="email" styleClass="errorText"/>
+
+         <h:outputLabel value="Calle"/>
+         <h:inputText id="calle"
+                      value="#{AltaClienteBean.cliente.calleCliente}"
+                      required="true"
+                      requiredMessage="Calle es un campo requerido."/>
+         <h:message for="calle" styleClass="errorText"/>
+
+         <h:outputLabel value="NumeroCalle"/>
+         <h:inputText id="numeroCalle"
+                      value="#{AltaClienteBean.cliente.numeroCalleCliente}"
+                      required="true"
+                      requiredMessage="NumeroCalle es un campo requerido."/>
+         <h:message for="numeroCalle" styleClass="errorText"/>
+
+         <h:outputLabel value="InfoAdicional"/>
+         <h:inputText id="infoAdicional"
+                      value="#{AltaClienteBean.cliente.infoAdicionalCliente}"
+                      required="true"
+                      requiredMessage="InfoAdicional es un campo requerido."/>
+         <h:message for="infoAdicional" styleClass="errorText"/>
+
+         <h:outputLabel value="Pais"/>
+         <h:inputText id="pais"
+                      value="#{AltaClienteBean.cliente.paisCliente}"
+                      required="true"
+                      requiredMessage="Pais es un campo requerido."/>
+         <h:message for="pais" styleClass="errorText"/>
+
+         <h:outputLabel value="Provincia"/>
+         <h:inputText id="provincia"
+                      value="#{AltaClienteBean.cliente.provinciaCliente}"
+                      required="true"
+                      requiredMessage="Provincia es un campo requerido."/>
+         <h:message for="provincia" styleClass="errorText"/>
+
+         <h:outputLabel value="Ciudad"/>
+         <h:inputText id="ciudad"
+                      value="#{AltaClienteBean.cliente.ciudadCliente}"
+                      required="true"
+                      requiredMessage="Ciudad es un campo requerido."/>
+         <h:message for="ciudad" styleClass="errorText"/>
+
+         <h:outputLabel value="CodPos"/>
+         <h:inputText id="codpos"
+                      value="#{AltaClienteBean.cliente.codpostCliente}"
+                      required="true"
+                      requiredMessage="Codpos es un campo requerido."/>
+         <h:message for="codpos" styleClass="errorText"/>
+
+         <h:outputLabel value="Dni"/>
+         <h:inputText id="dni"
+                      value="#{AltaClienteBean.cliente.dni}"
+                      required="true"
+                      requiredMessage="Dni es un campo requerido."/>
+         <h:message for="dni" styleClass="errorText"/>
+
+      </h:panelGrid>
+
+      <h:commandButton value="Guardar"
+                       actionListener="#{AltaClienteBean.agregarCliente}" update="msgs"/>
+   </h:form>
+</h:body>
+</html>

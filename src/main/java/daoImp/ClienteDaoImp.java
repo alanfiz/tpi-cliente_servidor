@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(ClienteDao.class)
-public class ClienteDaoImp extends AbstractJpaDaoImpl<Cliente,Integer> implements ClienteDao {
+public class ClienteDaoImp extends AbstractJpaDaoImpl<Cliente,Long> implements ClienteDao {
 
 
 }
