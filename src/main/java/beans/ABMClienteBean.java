@@ -56,6 +56,7 @@ public class ABMClienteBean {
     public String removeCliente(Cliente c){
         try {
             clienteDao.remove(c);
+            clienteList = clienteDao.findAll();
         } catch (DaoException e) {
             e.printStackTrace();
             System.out.println(e.getMessage());
