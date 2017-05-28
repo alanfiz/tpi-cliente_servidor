@@ -6,6 +6,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 
@@ -37,9 +38,9 @@ public class Cliente extends BaseLongEntity {
 
         @Column (name = "telefonoCliente" )
         @NotNull
-        //@Min(value = 1000000000L)
-        //@Max(value = 9999999999999L)
-        private Long telefonoCliente;
+        @Pattern(regexp="^\\(?(\\d{3})\\)?[- ]?(\\d{3})[- ]?(\\d{4})$",
+                message="{invalid.phonenumber}")
+        private String telefonoCliente;
 
         @Column (name = "emailCliente", unique = true)
         @NotNull
@@ -84,9 +85,6 @@ public class Cliente extends BaseLongEntity {
         @Max(value = 99999999)
         private Integer dni;
 
-        boolean editable;
-
-
         //Relaciones de tabla
 
         @OneToMany()
@@ -95,17 +93,10 @@ public class Cliente extends BaseLongEntity {
 
         //Metodos
 
-        public boolean isEditable() {
-            return editable;
-        }
-        public void setEditable(boolean editable) {
-            this.editable = editable;
-        }
-
         public Cliente() {
         }
 
-        public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull Long telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
+        public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull String telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
                 this.usuarioCliente = usuarioCliente;
                 this.passwordCliente = passwordCliente;
                 this.nombreCliente = nombreCliente;
@@ -159,11 +150,11 @@ public class Cliente extends BaseLongEntity {
         }
 
         //@NotNull
-        public Long getTelefonoCliente() {
+        public String getTelefonoCliente() {
                 return telefonoCliente;
         }
 
-        public void setTelefonoCliente(@NotNull Long telefonoCliente) {
+        public void setTelefonoCliente(@NotNull String telefonoCliente) {
                 this.telefonoCliente = telefonoCliente;
         }
 
@@ -272,7 +263,6 @@ public class Cliente extends BaseLongEntity {
                 ", ciudadCliente='" + ciudadCliente + '\'' +
                 ", codpostCliente=" + codpostCliente +
                 ", dni=" + dni +
-                ", editable=" + editable +
                 ", pedidos=" + pedidos +
                 '}';
     }
