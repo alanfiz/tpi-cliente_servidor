@@ -5,8 +5,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Crear Cliente</title>
-    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.2.0/css/bootstrap.min.css" />-->
     <h:outputStylesheet name="css/bootstrap.min.css" />
+    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.7/css/bootstrap-jsf.css" />-->
 </h:head>
 <h:body>
     <h:form class="form-horizontal">
@@ -22,7 +22,6 @@
             <div class="col-sm-4">
                 <h:inputText id="usuarioClienteIt" value="#{abmclientebean.cliente.usuarioCliente}" class="form-control"
                              validatorMessage="Usuario es requerido">
-                    <f:validateRequired />
                 </h:inputText>
             </div>
         </div>

@@ -5,107 +5,119 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Editar Cliente</title>
-    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.2.0/css/bootstrap.min.css" />-->
     <h:outputStylesheet name="css/bootstrap.min.css" />
+    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.7/css/bootstrap-jsf.css" />-->
 </h:head>
 <h:body>
-    <h:form id="form" class="form-horizontal">
+    <h:form class="form-horizontal" id="form">
         <div class="form-group">
-            <div class="col-sm-2"></div>
-            <h2 style="text-align: center" class="col-sm-4">Editar Cliente</h2>
+            <div class="col-sm-4"></div>
+            <div  class="col-sm-4">
+                <h2 style="text-align: center">Editar Cliente</h2>
+            </div>
         </div>
         <hr/>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Usuario Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Usuario Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="usuarioClienteIt" value="#{abmclientebean.cliente.usuarioCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Password Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Password Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="passwordClienteIt" value="#{abmclientebean.cliente.passwordCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Nombre Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Nombre Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="nombreClienteIt" value="#{abmclientebean.cliente.nombreCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Apellido Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Apellido Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="apellidoClienteIt" value="#{abmclientebean.cliente.apellidoCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Telefono Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Telefono Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="telefonoClienteIt" value="#{abmclientebean.cliente.telefonoCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Email Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Email Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="emailClienteIt" value="#{abmclientebean.cliente.emailCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Calle Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Calle Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="calleClienteIt" value="#{abmclientebean.cliente.calleCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">NumeroCalle Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">NumeroCalle Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="numeroCalleClienteIt" value="#{abmclientebean.cliente.numeroCalleCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">InfoAdicional Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">InfoAdicional Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="infoAdicionalClienteIt" value="#{abmclientebean.cliente.infoAdicionalCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Pais Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Pais Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="paisClienteIt" value="#{abmclientebean.cliente.paisCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Provincia Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Provincia Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="provinciaClienteIt" value="#{abmclientebean.cliente.provinciaCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Ciudad Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Ciudad Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="ciudadClienteIt" value="#{abmclientebean.cliente.ciudadCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">CodPost Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">CodPost Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="codPostClienteIt" value="#{abmclientebean.cliente.codpostCliente}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-2">Dni Cliente</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Dni Cliente</h:outputLabel>
             <div class="col-sm-4">
                 <h:inputText id="dniClienteIt" value="#{abmclientebean.cliente.dni}" class="form-control"/>
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-2"></div>
+            <div class="col-sm-4"></div>
             <div class="col-sm-4">
-                <center><h:commandButton value="Editar" action="#{abmclientebean.updateCliente}"
-                                         class="btn btn-primary" style="width: 80px;"></h:commandButton></center>
+                <div class="col-sm-2">
+                    <h:commandButton value="Editar" action="#{abmclientebean.updateCliente}"
+                                     class="btn btn-primary" style="width: 80px;"/>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-2">
+                    <h:link outcome="ABMCliente" value="Cancelar" class="btn btn-danger">
+                    </h:link>
+                </div>
             </div>
         </div>
     </h:form>
 </h:body>
 </html>
+
+

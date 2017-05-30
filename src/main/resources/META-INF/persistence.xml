@@ -18,7 +18,7 @@
         <class>model.ComisionFija</class>
         <class>model.ComisionPorcentual</class>
         <properties>
-            <property name="wildfly.jpa.twophasebootstrap" value="false" />
+            <!--<property name="wildfly.jpa.twophasebootstrap" value="false" />-->
             <!--<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />-->
             <!--<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/tpidacs?useUnicode=true"/>-->
             <!--<property name="javax.persistence.jdbc.user" value="root"/>-->
