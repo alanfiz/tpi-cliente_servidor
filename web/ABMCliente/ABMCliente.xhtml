@@ -93,8 +93,18 @@
                 </h:commandButton>
             </h:column>
         </h:dataTable>
-        <center><h:commandButton action = "#{abmclientebean.crearCliente}"
-                                 value="Crear Cliente" class="btn btn-success"/></center>
+
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <h:commandButton action = "#{abmclientebean.crearCliente}"
+                             value="Crear Cliente"
+                             class="btn btn-success"/>
+            <div class="col-sm-3"></div>
+            <h:outputLink value="../index.html" class="btn btn-success">Volver
+            </h:outputLink>
+        </div>
+        <div class="col-sm-4"></div>
+
     </h:form>
 </h:body>
 </html>

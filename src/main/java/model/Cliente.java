@@ -18,7 +18,7 @@ public class Cliente extends BaseLongEntity {
 
         @Column(name="usuarioCliente", unique = true)
         @NotNull
-        @Size(min = 1,max =20)
+        @Size(min = 3,max =20)
         private String usuarioCliente;
 
         @Column(name="passwordCliente")
@@ -28,12 +28,12 @@ public class Cliente extends BaseLongEntity {
 
         @Column(name = "nombreCliente")
         @NotNull
-        @Size(min = 5,max = 50)
+        @Size(min = 3,max = 50)
         private String nombreCliente;
 
         @Column (name = "apellidoCliente")
         @NotNull
-        @Size (min = 5, max = 50)
+        @Size (min = 3, max = 50)
         private String apellidoCliente;
 
         @Column (name = "telefonoCliente" )

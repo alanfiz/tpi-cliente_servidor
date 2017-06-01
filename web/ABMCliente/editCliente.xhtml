@@ -20,85 +20,127 @@
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Usuario Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="usuarioClienteIt" value="#{abmclientebean.cliente.usuarioCliente}" class="form-control"/>
+                <h:inputText id="usuarioClienteIt" value="#{abmclientebean.cliente.usuarioCliente}" class="form-control" requiredMessage="Usuario es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="dniClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Password Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="passwordClienteIt" value="#{abmclientebean.cliente.passwordCliente}" class="form-control"/>
+                <h:inputText id="passwordClienteIt" value="#{abmclientebean.cliente.passwordCliente}" class="form-control" requiredMessage="Password es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="passwordClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Nombre Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="nombreClienteIt" value="#{abmclientebean.cliente.nombreCliente}" class="form-control"/>
+                <h:inputText id="nombreClienteIt" value="#{abmclientebean.cliente.nombreCliente}" class="form-control" requiredMessage="Nombre es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="nombreClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Apellido Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="apellidoClienteIt" value="#{abmclientebean.cliente.apellidoCliente}" class="form-control"/>
+                <h:inputText id="apellidoClienteIt" value="#{abmclientebean.cliente.apellidoCliente}" class="form-control" requiredMessage="Apellido es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="apellidoClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Telefono Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="telefonoClienteIt" value="#{abmclientebean.cliente.telefonoCliente}" class="form-control"/>
+                <h:inputText id="telefonoClienteIt" value="#{abmclientebean.cliente.telefonoCliente}" class="form-control" requiredMessage="Telefono es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="telefonoClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Email Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="emailClienteIt" value="#{abmclientebean.cliente.emailCliente}" class="form-control"/>
+                <h:inputText id="emailClienteIt" value="#{abmclientebean.cliente.emailCliente}" class="form-control" requiredMessage="Email es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="emailClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Calle Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="calleClienteIt" value="#{abmclientebean.cliente.calleCliente}" class="form-control"/>
+                <h:inputText id="calleClienteIt" value="#{abmclientebean.cliente.calleCliente}" class="form-control" requiredMessage="Calle es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="calleClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">NumeroCalle Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="numeroCalleClienteIt" value="#{abmclientebean.cliente.numeroCalleCliente}" class="form-control"/>
+                <h:inputText id="numeroCalleClienteIt" value="#{abmclientebean.cliente.numeroCalleCliente}" class="form-control" requiredMessage="NumeroCalle es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="numeroCalleClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">InfoAdicional Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="infoAdicionalClienteIt" value="#{abmclientebean.cliente.infoAdicionalCliente}" class="form-control"/>
+                <h:inputText id="infoAdicionalClienteIt" value="#{abmclientebean.cliente.infoAdicionalCliente}" class="form-control" requiredMessage="InfoAdicional es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="infoAdicionalClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Pais Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="paisClienteIt" value="#{abmclientebean.cliente.paisCliente}" class="form-control"/>
+                <h:inputText id="paisClienteIt" value="#{abmclientebean.cliente.paisCliente}" class="form-control" requiredMessage="Pais es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="paisClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Provincia Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="provinciaClienteIt" value="#{abmclientebean.cliente.provinciaCliente}" class="form-control"/>
+                <h:inputText id="provinciaClienteIt" value="#{abmclientebean.cliente.provinciaCliente}" class="form-control" requiredMessage="Provincia es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="provinciaClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Ciudad Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="ciudadClienteIt" value="#{abmclientebean.cliente.ciudadCliente}" class="form-control"/>
+                <h:inputText id="ciudadClienteIt" value="#{abmclientebean.cliente.ciudadCliente}" class="form-control" requiredMessage="Ciudad es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="ciudadClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">CodPost Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="codPostClienteIt" value="#{abmclientebean.cliente.codpostCliente}" class="form-control"/>
+                <h:inputText id="codPostClienteIt" value="#{abmclientebean.cliente.codpostCliente}" class="form-control" requiredMessage="CodPos es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="codPostClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Dni Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="dniClienteIt" value="#{abmclientebean.cliente.dni}" class="form-control"/>
+                <h:inputText id="dniClienteIt" value="#{abmclientebean.cliente.dni}" class="form-control" requiredMessage="Dni es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="dniClienteIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
         <div class="form-group">
