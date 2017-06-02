@@ -35,7 +35,7 @@ public class Proveedor extends BaseLongEntity
         this.nombre = nombre;
     }
 
-    @NotNull
+//    @NotNull
     public String getNombre() {
         return nombre;
     }

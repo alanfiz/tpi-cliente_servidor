@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(TarjetaDao.class)
-public class TarjetaDaoImp extends AbstractJpaDaoImpl<Tarjeta,Integer> implements TarjetaDao {
+public class TarjetaDaoImp extends AbstractJpaDaoImpl<Tarjeta,Long> implements TarjetaDao {
 
 
 }

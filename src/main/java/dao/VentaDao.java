@@ -3,5 +3,5 @@ package dao;
 import model.Venta;
 
 
-public interface VentaDao  extends GenericDao<Venta, Integer> {
+public interface VentaDao  extends GenericDao<Venta,Long> {
 }

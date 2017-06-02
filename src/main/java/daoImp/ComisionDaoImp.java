@@ -3,6 +3,11 @@ package daoImp;
 import dao.ComisionDao;
 import model.Comision;
 
-public class ComisionDaoImp extends AbstractJpaDaoImpl<Comision,Integer> implements ComisionDao {
+import javax.ejb.Local;
+import javax.ejb.Stateless;
+
+@Stateless
+@Local(ComisionDao.class)
+public class ComisionDaoImp extends AbstractJpaDaoImpl<Comision,Long> implements ComisionDao {
 
 }

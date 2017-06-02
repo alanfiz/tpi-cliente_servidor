@@ -2,6 +2,6 @@ package dao;
 
 import model.Comision;
 
-public interface ComisionDao extends GenericDao<Comision,Integer> {
+public interface ComisionDao extends GenericDao<Comision,Long> {
 
 }
