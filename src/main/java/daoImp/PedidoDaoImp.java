@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(PedidoDao.class)
-public class PedidoDaoImp extends AbstractJpaDaoImpl<Pedido,Integer> implements PedidoDao {
+public class PedidoDaoImp extends AbstractJpaDaoImpl<Pedido,Long> implements PedidoDao {
 
 
 }

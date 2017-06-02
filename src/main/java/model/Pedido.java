@@ -3,6 +3,7 @@ package model;
 import org.jetbrains.annotations.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
@@ -15,8 +16,10 @@ public class Pedido extends BaseLongEntity {
 
     @Column(name = "fechayhoraPedido")
     @NotNull
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechayhoraPedido;
+    //@Temporal(TemporalType.TIMESTAMP)
+    @Pattern(regexp="^\\d{2}-\\d{2}-\\d{4}$",
+            message="{invalid.Date}")
+    private String fechayhoraPedido;
 
     @Column(name = "estadoPedido")
     @NotNull
@@ -46,7 +49,7 @@ public class Pedido extends BaseLongEntity {
     public Pedido() {
     }
 
-    public Pedido(@NotNull Date fechayhoraPedido, @NotNull String estadoPedido, Cliente cliente, FormaPago formaPago, Venta venta) {
+    public Pedido(@NotNull String fechayhoraPedido, @NotNull String estadoPedido, Cliente cliente, FormaPago formaPago, Venta venta) {
         this.fechayhoraPedido = fechayhoraPedido;
         this.estadoPedido = estadoPedido;
         this.cliente = cliente;
@@ -54,21 +57,21 @@ public class Pedido extends BaseLongEntity {
         this.venta = venta;
     }
 
-    public Pedido(@NotNull Date fechayhoraPedido, @NotNull String estadoPedido) {
+    public Pedido(@NotNull String fechayhoraPedido, @NotNull String estadoPedido) {
         this.fechayhoraPedido = fechayhoraPedido;
         this.estadoPedido = estadoPedido;
     }
 
-    @NotNull
-    public Date getFechayhoraPedido() {
+    //@NotNull
+    public String getFechayhoraPedido() {
         return fechayhoraPedido;
     }
 
-    public void setFechayhoraPedido(@NotNull Date fechayhoraPedido) {
+    public void setFechayhoraPedido(@NotNull String fechayhoraPedido) {
         this.fechayhoraPedido = fechayhoraPedido;
     }
 
-    @NotNull
+    //@NotNull
     public String getEstadoPedido() {
         return estadoPedido;
     }
@@ -81,7 +84,7 @@ public class Pedido extends BaseLongEntity {
         return cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente( Cliente cliente) {
         this.cliente = cliente;
     }
 
@@ -99,5 +102,13 @@ public class Pedido extends BaseLongEntity {
 
     public void setProductos(List<Producto> productos) {
         this.productos = productos;
+    }
+
+    public Venta getVenta() {
+        return venta;
+    }
+
+    public void setVenta(Venta venta) {
+        this.venta = venta;
     }
 }

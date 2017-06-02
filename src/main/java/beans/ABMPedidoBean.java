@@ -1,0 +1,106 @@
+package beans;
+
+import dao.ClienteDao;
+import dao.DaoException;
+import dao.PedidoDao;
+import model.Cliente;
+import model.Pedido;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import java.util.Date;
+import java.util.List;
+
+@ManagedBean(name = "abmpedidobean")
+@SessionScoped
+public class ABMPedidoBean {
+    private Pedido pedido;
+    private Long idCliente;
+    @EJB
+    private PedidoDao pedidoDao;
+    @EJB
+    private ClienteDao clienteDao;
+    private List<Pedido> pedidoList;
+
+    @PostConstruct
+    public void init(){
+        try {
+            idCliente = null;
+            this.pedido = new Pedido();
+            pedidoList = pedidoDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<Pedido> getPedidos(){
+        return pedidoList;
+    }
+
+    public String updatePedido(){
+        try {
+            pedidoDao.merge(this.pedido);
+            pedidoList = pedidoDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+    }
+
+    public String agregarPedido(){
+        try {
+            Cliente c = clienteDao.findById(this.idCliente);
+            pedido.setCliente(c);
+            pedidoDao.persist(this.pedido);
+            pedidoList = pedidoDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+    }
+
+    public String crearPedido(){
+        this.pedido = new Pedido();
+        return "/ABMPedido/createPedido.xhtml?faces-redirect=true";
+    }
+
+    public String removePedido(Pedido p){
+        try {
+            pedidoDao.remove(p);
+            pedidoList = pedidoDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+    }
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public Long getIdCliente() {
+        return idCliente;
+    }
+
+    public void setIdCliente(Long idCliente) {
+        this.idCliente = idCliente;
+    }
+
+    public String editPedido(Pedido p){
+        try {
+            pedido = pedidoDao.findById(p.getId());
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMPedido/editPedido.xhtml?faces-redirect=true";
+    }
+
+}
