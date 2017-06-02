@@ -1,0 +1,90 @@
+package beans;
+
+import dao.ComisionFijaDao;
+import dao.DaoException;
+import model.ComisionFija;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.EJB;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import java.util.List;
+
+@ManagedBean(name = "abmcomisionfijabean")
+@SessionScoped
+public class ABMComisionFijaBean {
+    private ComisionFija comisionFija;
+    @EJB
+    private ComisionFijaDao comisionFijaDao;
+    private List<ComisionFija> comisionFijaList;
+
+    @PostConstruct
+    public void init(){
+        try {
+            this.comisionFija = new ComisionFija();
+            comisionFijaList = comisionFijaDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public List<ComisionFija> getComisionFijas(){
+        return comisionFijaList;
+    }
+
+    public String updateComisionFija(){
+        try {
+            comisionFijaDao.merge(this.comisionFija);
+            comisionFijaList = comisionFijaDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMComisionFija/ABMComisionFija.xhtml?faces-redirect=true";
+    }
+
+    public String agregarComisionFija(){
+        try {
+            comisionFijaDao.persist(this.comisionFija);
+            comisionFijaList = comisionFijaDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMComisionFija/ABMComisionFija.xhtml?faces-redirect=true";
+    }
+
+    public String crearComisionFija(){
+        this.comisionFija = new ComisionFija();
+        return "/ABMComisionFija/createComisionFija.xhtml?faces-redirect=true";
+    }
+
+    public String removeComisionFija(ComisionFija c){
+        try {
+            comisionFijaDao.remove(c);
+            comisionFijaList = comisionFijaDao.findAll();
+        } catch (DaoException e) {
+            e.printStackTrace();
+            System.out.println(e.getMessage());
+        }
+
+        return "/ABMComisionFija/ABMComisionFija.xhtml?faces-redirect=true";
+    }
+
+    public ComisionFija getComisionFija() {
+        return comisionFija;
+    }
+
+    public void setComisionFija(ComisionFija comisionFija) {
+        this.comisionFija = comisionFija;
+    }
+
+    public String editComisionFija(ComisionFija c){
+        try {
+            comisionFija= comisionFijaDao.findById(c.getId());
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "/ABMComisionFija/editComisionFija.xhtml?faces-redirect=true";
+    }
+
+
+}
