@@ -2,5 +2,5 @@ package dao;
 
 import model.FormaPago;
 
-public interface FormaPagoDao extends GenericDao<FormaPago,Integer> {
+public interface FormapagoDao extends GenericDao<FormaPago,Long> {
 }

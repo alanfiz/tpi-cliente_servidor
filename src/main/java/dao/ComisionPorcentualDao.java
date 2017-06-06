@@ -2,5 +2,5 @@ package dao;
 
 import model.ComisionPorcentual;
 
-public interface ComisionPorcentualDao extends GenericDao<ComisionPorcentual,Integer> {
+public interface ComisionPorcentualDao extends GenericDao<ComisionPorcentual,Long> {
 }

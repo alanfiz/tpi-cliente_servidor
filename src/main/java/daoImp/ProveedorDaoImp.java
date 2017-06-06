@@ -8,7 +8,7 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(ProveedorDao.class)
-public class ProveedorDaoImp extends AbstractJpaDaoImpl<Proveedor,Integer> implements ProveedorDao {
+public class ProveedorDaoImp extends AbstractJpaDaoImpl<Proveedor,Long> implements ProveedorDao {
 
 
 }

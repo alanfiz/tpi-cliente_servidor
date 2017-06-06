@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Crear Producto</title>
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.7/css/bootstrap-jsf.css" />-->
+</h:head>
+<h:body>
+    <h:form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div  class="col-sm-4">
+                <h2 style="text-align: center">Crear Producto</h2>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Nombre</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="nombreProductoIt" value="#{abmproductobean.producto.nombreProducto}" class="form-control"
+                             requiredMessage="Nombre es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="nombreProductoIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Marca</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="marcaProductoIt" value="#{abmproductobean.producto.marcaProducto}" class="form-control"
+                               requiredMessage="Password es requerido" >
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="marcaProductoIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Origen</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="origenProductoIt" value="#{abmproductobean.producto.origenProducto}" class="form-control"
+                             requiredMessage="Nombre es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="origenProductoIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Precio unitario</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="preciounitarioProductoIt" value="#{abmproductobean.producto.precioUnitarioProducto}" class="form-control"
+                             requiredMessage="preciounitarioProductoIt" >
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="preciounitarioProductoIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="col-sm-2">
+                    <h:commandButton value="Guardar" action="#{abmproductobean.agregarProducto}" class="btn btn-success"
+                                     style="width: 80px;"/>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-2">
+                    <h:link outcome="ABMProducto" value="Cancelar" class="btn btn-danger">
+                    </h:link>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+</html>

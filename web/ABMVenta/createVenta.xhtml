@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>Crear Venta</title>
+    <h:outputStylesheet name="css/bootstrap.min.css" />
+    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.7/css/bootstrap-jsf.css" />-->
+</h:head>
+<h:body>
+    <h:form class="form-horizontal">
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div  class="col-sm-4">
+                <h2 style="text-align: center">Crear Venta</h2>
+            </div>
+        </div>
+        <hr/>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Precio Unitario</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="precioUnitarioVentaIt" value="#{abmventabean.venta.precioUnitarioVenta}" class="form-control"
+                             requiredMessage="Precio unitario es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="precioUnitarioVentaIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Precio Final</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="precioFinalVentaIt" value="#{abmventabean.venta.precioFinalVenta}" class="form-control"
+                             requiredMessage="Precio final es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="precioFinalVentaIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Costo Envio</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="costoEnvioVentaIt" value="#{abmventabean.venta.costoEnvioVenta}" class="form-control"
+                             requiredMessage="Costo envio es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="costoEnvioVentaIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Impuesto</h:outputLabel>
+            <div class="col-sm-4">
+                <h:inputText id="impuestoVentaIt" value="#{abmventabean.venta.impuestoVenta}" class="form-control"
+                             requiredMessage="Impuesto es requerido">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="impuestoVentaIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4">
+                <div class="col-sm-2">
+                    <h:commandButton value="Guardar" action="#{abmventabean.agregarVenta}" class="btn btn-success"
+                                     style="width: 80px;"/>
+                </div>
+                <div class="col-sm-1">
+                </div>
+                <div class="col-sm-2">
+                    <h:link outcome="ABMVenta" value="Cancelar" class="btn btn-danger">
+                    </h:link>
+                </div>
+            </div>
+        </div>
+    </h:form>
+</h:body>
+
+</html>

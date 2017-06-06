@@ -8,6 +8,6 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(ComisionPorcentualDao.class)
-public class ComisionPorcentualDaoImp extends AbstractJpaDaoImpl<ComisionPorcentual,Integer> implements ComisionPorcentualDao {
+public class ComisionPorcentualDaoImp extends AbstractJpaDaoImpl<ComisionPorcentual,Long> implements ComisionPorcentualDao {
 
 }

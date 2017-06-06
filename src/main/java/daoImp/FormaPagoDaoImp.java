@@ -1,13 +1,13 @@
 package daoImp;
 
-import dao.FormaPagoDao;
+import dao.FormapagoDao;
 import model.FormaPago;
 
 import javax.ejb.Local;
 import javax.ejb.Stateless;
 
 @Stateless
-@Local(FormaPagoDao.class)
-public class FormaPagoDaoImp extends AbstractJpaDaoImpl<FormaPago,Integer> implements FormaPagoDao {
+@Local(FormapagoDao.class)
+public class FormapagoDaoImp extends AbstractJpaDaoImpl<FormaPago,Long> implements FormapagoDao {
 
 }

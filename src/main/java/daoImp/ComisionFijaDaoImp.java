@@ -8,5 +8,5 @@ import javax.ejb.Stateless;
 
 @Stateless
 @Local(ComisionFijaDao.class)
-public class ComisionFijaDaoImp extends AbstractJpaDaoImpl<ComisionFija,Integer> implements ComisionFijaDao {
+public class ComisionFijaDaoImp extends AbstractJpaDaoImpl<ComisionFija,Long> implements ComisionFijaDao {
 }
