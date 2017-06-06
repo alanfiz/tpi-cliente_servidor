@@ -46,7 +46,7 @@ public class ABMPedidoBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+        return "ABMPedido.xhtml?faces-redirect=true";
     }
 
     public String agregarPedido(){
@@ -58,12 +58,12 @@ public class ABMPedidoBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+        return "ABMPedido.xhtml?faces-redirect=true";
     }
 
     public String crearPedido(){
         this.pedido = new Pedido();
-        return "/ABMPedido/createPedido.xhtml?faces-redirect=true";
+        return "createPedido.xhtml?faces-redirect=true";
     }
 
     public String removePedido(Pedido p){
@@ -75,7 +75,7 @@ public class ABMPedidoBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMPedido/ABMPedido.xhtml?faces-redirect=true";
+        return "ABMPedido.xhtml?faces-redirect=true";
     }
 
     public Pedido getPedido() {
@@ -94,13 +94,15 @@ public class ABMPedidoBean {
         this.idCliente = idCliente;
     }
 
+
     public String editPedido(Pedido p){
         try {
             pedido = pedidoDao.findById(p.getId());
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMPedido/editPedido.xhtml?faces-redirect=true";
+        return "editPedido.xhtml?faces-redirect=true";
     }
+
 
 }

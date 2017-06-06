@@ -39,7 +39,7 @@ public class ABMVentaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMVenta/ABMVenta.xhtml?faces-redirect=true";
+        return "ABMVenta.xhtml?faces-redirect=true";
     }
 
     public String agregarVenta(){
@@ -49,12 +49,12 @@ public class ABMVentaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMVenta/ABMVenta.xhtml?faces-redirect=true";
+        return "ABMVenta.xhtml?faces-redirect=true";
     }
 
     public String crearVenta(){
         this.venta = new Venta();
-        return "/ABMVenta/createVenta.xhtml?faces-redirect=true";
+        return "createVenta.xhtml?faces-redirect=true";
     }
 
     public String removeVenta(Venta v){
@@ -66,7 +66,7 @@ public class ABMVentaBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMVenta/ABMVenta.xhtml?faces-redirect=true";
+        return "ABMVenta.xhtml?faces-redirect=true";
     }
 
     public Venta getVenta() {
@@ -83,7 +83,7 @@ public class ABMVentaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMVenta/editVenta.xhtml?faces-redirect=true";
+        return "editVenta.xhtml?faces-redirect=true";
     }
 
 }

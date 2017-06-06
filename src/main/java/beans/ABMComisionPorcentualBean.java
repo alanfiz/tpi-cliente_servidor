@@ -39,7 +39,7 @@ public class ABMComisionPorcentualBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComisionPorcentual/ABMComisionPorcentual.xhtml?faces-redirect=true";
+        return "ABMComisionPorcentual.xhtml?faces-redirect=true";
     }
 
     public String agregarComisionPorcentual(){
@@ -49,12 +49,12 @@ public class ABMComisionPorcentualBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComisionPorcentual/ABMComisionPorcentual.xhtml?faces-redirect=true";
+        return "ABMComisionPorcentual.xhtml?faces-redirect=true";
     }
 
     public String crearComisionPorcentual(){
         this.comisionPorcentual = new ComisionPorcentual();
-        return "/ABMComisionPorcentual/createComisionPorcentual.xhtml?faces-redirect=true";
+        return "createComisionPorcentual.xhtml?faces-redirect=true";
     }
 
     public String removeComisionPorcentual(ComisionPorcentual c){
@@ -66,7 +66,7 @@ public class ABMComisionPorcentualBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMComisionPorcentual/ABMComisionPorcentual.xhtml?faces-redirect=true";
+        return "ABMComisionPorcentual.xhtml?faces-redirect=true";
     }
 
     public ComisionPorcentual getComisionPorcentual() {
@@ -83,7 +83,7 @@ public class ABMComisionPorcentualBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComisionPorcentual/editComisionPorcentual.xhtml?faces-redirect=true";
+        return "editComisionPorcentual.xhtml?faces-redirect=true";
     }
 
 }

@@ -34,7 +34,7 @@ public class ComisionPorcentual extends BaseLongEntity {
         this.valorPorcentual = valorPorcentual;
     }
 
-    @NotNull
+    //@NotNull
     public Double getValorPorcentual() {
         return valorPorcentual;
     }

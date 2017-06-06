@@ -40,7 +40,7 @@ public class ABMProveedorBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProveedor/ABMProveedor.xhtml?faces-redirect=true";
+        return "ABMProveedor.xhtml?faces-redirect=true";
     }
 
     public String agregarProveedor(){
@@ -50,12 +50,12 @@ public class ABMProveedorBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProveedor/ABMProveedor.xhtml?faces-redirect=true";
+        return "ABMProveedor.xhtml?faces-redirect=true";
     }
 
     public String crearProveedor(){
         this.proveedor = new Proveedor();
-        return "/ABMProveedor/createProveedor.xhtml?faces-redirect=true";
+        return "createProveedor.xhtml?faces-redirect=true";
     }
 
     public String removeProveedor(Proveedor p){
@@ -67,7 +67,7 @@ public class ABMProveedorBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMProveedor/ABMProveedor.xhtml?faces-redirect=true";
+        return "ABMProveedor.xhtml?faces-redirect=true";
     }
 
     public Proveedor getProveedor() {
@@ -84,6 +84,6 @@ public class ABMProveedorBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProveedor/editProveedor.xhtml?faces-redirect=true";
+        return "editProveedor.xhtml?faces-redirect=true";
     }
 }

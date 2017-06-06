@@ -40,7 +40,7 @@ public class ABMComisionBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComision/ABMComision.xhtml?faces-redirect=true";
+        return "ABMComision.xhtml?faces-redirect=true";
     }
 
     public String agregarComision(){
@@ -50,12 +50,12 @@ public class ABMComisionBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComision/ABMComision.xhtml?faces-redirect=true";
+        return "ABMComision.xhtml?faces-redirect=true";
     }
 
     public String crearComision(){
         this.comision = new Comision();
-        return "/ABMComision/createComision.xhtml?faces-redirect=true";
+        return "createComision.xhtml?faces-redirect=true";
     }
 
     public String removeComision(Comision c){
@@ -67,7 +67,7 @@ public class ABMComisionBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMComision/ABMComision.xhtml?faces-redirect=true";
+        return "ABMComision.xhtml?faces-redirect=true";
     }
 
     public Comision getComision() {
@@ -84,7 +84,7 @@ public class ABMComisionBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMComision/editComision.xhtml?faces-redirect=true";
+        return "editComision.xhtml?faces-redirect=true";
     }
 
 }

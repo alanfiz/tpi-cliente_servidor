@@ -40,7 +40,7 @@ public class ABMProductoBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProducto/ABMProducto.xhtml?faces-redirect=true";
+        return "ABMProducto.xhtml?faces-redirect=true";
     }
 
     public String agregarProducto(){
@@ -50,12 +50,12 @@ public class ABMProductoBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProducto/ABMProducto.xhtml?faces-redirect=true";
+        return "ABMProducto.xhtml?faces-redirect=true";
     }
 
     public String crearProducto(){
         this.producto = new Producto();
-        return "/ABMProducto/createProducto.xhtml?faces-redirect=true";
+        return "createProducto.xhtml?faces-redirect=true";
     }
 
     public String removeProducto(Producto p){
@@ -67,7 +67,7 @@ public class ABMProductoBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMProducto/ABMProducto.xhtml?faces-redirect=true";
+        return "ABMProducto.xhtml?faces-redirect=true";
     }
 
     public Producto getProducto() {
@@ -84,7 +84,7 @@ public class ABMProductoBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMProducto/editProducto.xhtml?faces-redirect=true";
+        return "editProducto.xhtml?faces-redirect=true";
     }
 
 }

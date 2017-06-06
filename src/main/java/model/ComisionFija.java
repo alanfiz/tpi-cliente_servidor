@@ -34,7 +34,7 @@ public class ComisionFija extends BaseLongEntity {
         this.valorfijo = valorfijo;
     }
 
-    @NotNull
+    //@NotNull
     public Double getValorfijo() {
         return valorfijo;
     }

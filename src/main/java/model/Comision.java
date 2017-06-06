@@ -50,7 +50,7 @@ public class Comision extends BaseLongEntity {
         this.nombreComision = nombreComision;
     }
 
-    @NotNull
+    //@NotNull
     public String getNombreComision() {
         return nombreComision;
     }

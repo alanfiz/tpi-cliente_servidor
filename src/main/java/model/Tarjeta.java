@@ -1,6 +1,7 @@
 package model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.Date;
 
 @Entity
@@ -14,11 +15,13 @@ public class Tarjeta extends BaseLongEntity
     private String proveedorTarjeta;
 
     @Column(name = "codigoTarjeta", unique = true)
-    private Integer codigoTarjeta;
+    private Long codigoTarjeta;
 
     @Column(name = "fechaVencimiento")
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date fechaVencimientoTarjeta;
+    @Pattern(regexp="^\\d{2}-\\d{2}-\\d{4}$",
+            message="{invalid.Date}")
+    //@Temporal(TemporalType.TIMESTAMP)
+    private String fechaVencimientoTarjeta;
 
     @Column(name = "nombreTitularTarjeta")
     private String nombreTitularTarjeta;
@@ -40,7 +43,7 @@ public class Tarjeta extends BaseLongEntity
     public Tarjeta() {
     }
 
-    public Tarjeta(String proveedorTarjeta, Integer codigoTarjeta, Date fechaVencimientoTarjeta, String nombreTitularTarjeta, Integer codigoValidezTarjeta, Integer cuotasTarjeta, FormaPago formaPago) {
+    public Tarjeta(String proveedorTarjeta, Long codigoTarjeta, String fechaVencimientoTarjeta, String nombreTitularTarjeta, Integer codigoValidezTarjeta, Integer cuotasTarjeta, FormaPago formaPago) {
         this.proveedorTarjeta = proveedorTarjeta;
         this.codigoTarjeta = codigoTarjeta;
         this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
@@ -50,7 +53,7 @@ public class Tarjeta extends BaseLongEntity
         this.formaPago = formaPago;
     }
 
-    public Tarjeta(String proveedorTarjeta, Integer codigoTarjeta, Date fechaVencimientoTarjeta, String nombreTitularTarjeta, Integer codigoValidezTarjeta, Integer cuotasTarjeta) {
+    public Tarjeta(String proveedorTarjeta, Long codigoTarjeta, String fechaVencimientoTarjeta, String nombreTitularTarjeta, Integer codigoValidezTarjeta, Integer cuotasTarjeta) {
         this.proveedorTarjeta = proveedorTarjeta;
         this.codigoTarjeta = codigoTarjeta;
         this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
@@ -67,19 +70,19 @@ public class Tarjeta extends BaseLongEntity
         this.proveedorTarjeta = proveedorTarjeta;
     }
 
-    public Integer getCodigoTarjeta() {
+    public Long getCodigoTarjeta() {
         return codigoTarjeta;
     }
 
-    public void setCodigoTarjeta(Integer codigoTarjeta) {
+    public void setCodigoTarjeta(Long codigoTarjeta) {
         this.codigoTarjeta = codigoTarjeta;
     }
 
-    public Date getFechaVencimientoTarjeta() {
+    public String getFechaVencimientoTarjeta() {
         return fechaVencimientoTarjeta;
     }
 
-    public void setFechaVencimientoTarjeta(Date fechaVencimientoTarjeta) {
+    public void setFechaVencimientoTarjeta(String fechaVencimientoTarjeta) {
         this.fechaVencimientoTarjeta = fechaVencimientoTarjeta;
     }
 

@@ -17,6 +17,7 @@ public class ABMClienteBean {
     private ClienteDao clienteDao;
     private List<Cliente> clienteList;
 
+
     @PostConstruct
     public void init(){
         try {
@@ -38,7 +39,7 @@ public class ABMClienteBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMCliente/ABMCliente.xhtml?faces-redirect=true";
+        return "ABMCliente.xhtml?faces-redirect=true";
     }
 
     public String agregarCliente(){
@@ -48,12 +49,12 @@ public class ABMClienteBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMCliente/ABMCliente.xhtml?faces-redirect=true";
+        return "ABMCliente.xhtml?faces-redirect=true";
     }
 
     public String crearCliente(){
         this.cliente = new Cliente();
-        return "/ABMCliente/createCliente.xhtml?faces-redirect=true";
+        return "createCliente.xhtml?faces-redirect=true";
     }
 
     public String removeCliente(Cliente c){
@@ -65,7 +66,7 @@ public class ABMClienteBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMCliente/ABMCliente.xhtml?faces-redirect=true";
+        return "ABMCliente.xhtml?faces-redirect=true";
     }
 
     public Cliente getCliente() {
@@ -82,7 +83,7 @@ public class ABMClienteBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMCliente/editCliente.xhtml?faces-redirect=true";
+        return "editCliente.xhtml?faces-redirect=true";
     }
 
 }

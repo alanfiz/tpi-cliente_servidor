@@ -40,7 +40,7 @@ public class ABMTarjetaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMTarjeta/ABMTarjeta.xhtml?faces-redirect=true";
+        return "ABMTarjeta.xhtml?faces-redirect=true";
     }
 
     public String agregarTarjeta(){
@@ -50,12 +50,12 @@ public class ABMTarjetaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMTarjeta/ABMTarjeta.xhtml?faces-redirect=true";
+        return "ABMTarjeta.xhtml?faces-redirect=true";
     }
 
     public String crearTarjeta(){
         this.tarjeta = new Tarjeta();
-        return "/ABMTarjeta/createTarjeta.xhtml?faces-redirect=true";
+        return "createTarjeta.xhtml?faces-redirect=true";
     }
 
     public String removeTarjeta(Tarjeta t){
@@ -67,7 +67,7 @@ public class ABMTarjetaBean {
             System.out.println(e.getMessage());
         }
 
-        return "/ABMTarjeta/ABMTarjeta.xhtml?faces-redirect=true";
+        return "ABMTarjeta.xhtml?faces-redirect=true";
     }
 
     public Tarjeta getTarjeta() {
@@ -84,7 +84,7 @@ public class ABMTarjetaBean {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        return "/ABMTarjeta/editTarjeta.xhtml?faces-redirect=true";
+        return "editTarjeta.xhtml?faces-redirect=true";
     }
 
 }
