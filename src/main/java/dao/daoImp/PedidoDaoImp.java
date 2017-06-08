@@ -1,4 +1,4 @@
-package daoImp;
+package dao.daoImp;
 
 import dao.PedidoDao;
 import model.Pedido;

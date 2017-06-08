@@ -1,7 +1,7 @@
 package model;
 
 import org.hibernate.validator.constraints.Email;
-import org.jetbrains.annotations.NotNull;
+import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import javax.validation.constraints.Max;

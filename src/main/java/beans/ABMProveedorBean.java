@@ -9,10 +9,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 @ManagedBean(name = "abmproveedorbean")
-@SessionScoped
+@ViewScoped
 public class ABMProveedorBean {
     private Proveedor proveedor;
     @EJB

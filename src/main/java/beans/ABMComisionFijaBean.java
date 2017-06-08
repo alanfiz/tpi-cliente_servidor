@@ -8,10 +8,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.List;
 
 @ManagedBean(name = "abmcomisionfijabean")
-@SessionScoped
+@ViewScoped
 public class ABMComisionFijaBean {
     private ComisionFija comisionFija;
     @EJB

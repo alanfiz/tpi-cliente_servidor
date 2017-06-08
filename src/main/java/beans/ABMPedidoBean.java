@@ -10,11 +10,12 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 import java.util.Date;
 import java.util.List;
 
 @ManagedBean(name = "abmpedidobean")
-@SessionScoped
+@ViewScoped
 public class ABMPedidoBean {
     private Pedido pedido;
     private Long idCliente;
