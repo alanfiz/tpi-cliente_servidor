@@ -7,16 +7,16 @@
     <persistence-unit name="persistencia" transaction-type="JTA">
         <jta-data-source>java:jboss/datasources/PruebaDS</jta-data-source>
 
-        <class>model.Cliente</class>
-        <class>model.FormaPago</class>
-        <class>model.Pedido</class>
-        <class>model.Producto</class>
-        <class>model.Proveedor</class>
-        <class>model.Tarjeta</class>
-        <class>model.Venta</class>
-        <class>model.Comision</class>
-        <class>model.ComisionFija</class>
-        <class>model.ComisionPorcentual</class>
+        <class>dacstpi.model.Cliente</class>
+        <class>dacstpi.model.FormaPago</class>
+        <class>dacstpi.model.Pedido</class>
+        <class>dacstpi.model.Producto</class>
+        <class>dacstpi.model.Proveedor</class>
+        <class>dacstpi.model.Tarjeta</class>
+        <class>dacstpi.model.Venta</class>
+        <class>dacstpi.model.Comision</class>
+        <class>dacstpi.model.ComisionFija</class>
+        <class>dacstpi.model.ComisionPorcentual</class>
         <properties>
             <!--<property name="wildfly.jpa.twophasebootstrap" value="false" />-->
             <!--<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />-->
