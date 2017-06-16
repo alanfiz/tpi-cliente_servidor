@@ -5,7 +5,9 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>ABM Cliente</title>
-    <h:outputStylesheet name="css/bootstrap.min.css"/>
+
+    <h:outputStylesheet name="webjars/bootstrap/3.3.6/webjars-requirejs.js"/>
+    <h:outputStylesheet name="webjars/bootstrap/3.3.6/css/bootstrap.css"/>
     <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.6/css/bootstrap.min-jsf.css" />-->
     <style type="text/css">
         table {
@@ -31,6 +33,10 @@
         </center>
         <h:dataTable value="#{abmclientebean.clientes}" var="cliente"
                      class="table table-striped table-hover table-bordered">
+            <h:column>
+                <f:facet name="header">Id</f:facet>
+                <h:outputText value="#{cliente.id}"/>
+            </h:column>
             <h:column>
                 <f:facet name="header">Usuario</f:facet>
                 <h:outputText value="#{cliente.usuarioCliente}"/>
@@ -85,14 +91,20 @@
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
-                <h:commandButton action = "#{abmclientebean.editCliente(cliente)}" value="Editar" class="btn btn-primary">
-                </h:commandButton>
+                <!--<h:commandButton action = "#{abmclientebean.editCliente(cliente)}" value="Editar" class="btn btn-primary">-->
+                <!--</h:commandButton>-->
+                <h:link value="Editar" outcome="editCliente.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{cliente.id}" />
+                </h:link>
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Borrar</f:facet>-->
                 <h:commandButton action = "#{abmclientebean.removeCliente(cliente)}" value="Borrar" class="btn btn-danger">
                 </h:commandButton>
+
             </h:column>
+
+
         </h:dataTable>
 
         <div class="col-sm-4"></div>

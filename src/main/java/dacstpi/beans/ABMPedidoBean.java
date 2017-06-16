@@ -10,13 +10,14 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import java.util.Date;
 import java.util.List;
 
 @ManagedBean(name = "abmpedidobean")
 @ViewScoped
 public class ABMPedidoBean {
     private Pedido pedido;
-    private Long idCliente;
+//    private Cliente cliente;
     @EJB
     private PedidoDao pedidoDao;
     @EJB
@@ -26,7 +27,7 @@ public class ABMPedidoBean {
     @PostConstruct
     public void init(){
         try {
-            idCliente = null;
+//            idCliente = null;
             this.pedido = new Pedido();
             pedidoList = pedidoDao.findAll();
         } catch (DaoException e) {
@@ -40,6 +41,7 @@ public class ABMPedidoBean {
 
     public String updatePedido(){
         try {
+            pedido.setFechayhoraPedido(new Date());
             pedidoDao.merge(this.pedido);
             pedidoList = pedidoDao.findAll();
         } catch (DaoException e) {
@@ -50,8 +52,9 @@ public class ABMPedidoBean {
 
     public String agregarPedido(){
         try {
-            Cliente c = clienteDao.findById(this.idCliente);
-            pedido.setCliente(c);
+//            Cliente c = clienteDao.findById(this.idCliente);
+//            pedido.setCliente(cliente);
+            pedido.setFechayhoraPedido(new Date());
             pedidoDao.persist(this.pedido);
             pedidoList = pedidoDao.findAll();
         } catch (DaoException e) {
@@ -85,14 +88,13 @@ public class ABMPedidoBean {
         this.pedido = pedido;
     }
 
-    public Long getIdCliente() {
-        return idCliente;
-    }
-
-    public void setIdCliente(Long idCliente) {
-        this.idCliente = idCliente;
-    }
-
+//    public Cliente getCliente() {
+//        return cliente;
+//    }
+//
+//    public void setCliente(Cliente cliente) {
+//        this.cliente = cliente;
+//    }
 
     public String editPedido(Pedido p){
         try {

@@ -20,4 +20,19 @@ public class BaseLongEntity implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof BaseLongEntity)) return false;
+
+        BaseLongEntity that = (BaseLongEntity) o;
+
+        return getId() == that.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return (int) (getId() ^ (getId() >>> 32));
+    }
 }

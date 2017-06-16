@@ -43,6 +43,7 @@
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
             <version>6.0</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>org.webjars</groupId>
@@ -52,6 +53,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -62,11 +64,5 @@
                 </configuration>
             </plugin>
         </plugins>
-        <resources>
-            <resource>
-                <directory>src/resources</directory>
-            </resource>
-        </resources>
     </build>
-
 </project>

@@ -5,8 +5,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Editar Pedido</title>
-    <h:outputStylesheet name="css/bootstrap.min.css" />
-    <!--<h:outputStylesheet library="webjars" name="bootstrap/3.3.7/css/bootstrap-jsf.css" />-->
+    <h:outputStylesheet name="webjars/bootstrap/3.3.6/css/bootstrap.css"/>
 </h:head>
 <h:body>
     <h:form class="form-horizontal" id="form">
@@ -20,22 +19,43 @@
         <div class="form-group">
             <h:outputLabel class="control-label col-sm-4">Estado Pedido</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="estadoPedidoIt" value="#{abmpedidobean.pedido.estadoPedido}" class="form-control" requiredMessage="Estado es requerido">
+                <h:selectOneMenu id="estadoPedidoIt"
+                                 class="btn btn-default dropdown-toggle"
+                                 requiredMessage="Estado es requerido"
+                                 value="#{abmpedidobean.pedido.estadoPedido}">
+                    <f:selectItem itemValue="Enviado" itemLabel="Pedido Enviado" />
+                    <f:selectItem itemValue="Recibido" itemLabel="Pedido Recibido" />
+                    <f:selectItem itemValue="Realizado" itemLabel="Pedido Realizado" />
                     <f:validateRequired />
-                </h:inputText>
+                </h:selectOneMenu>
                 <h:message for="estadoPedidoIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
+        <!--<div class="form-group">-->
+            <!--<h:outputLabel class="control-label col-sm-4">Fecha y Hora Pedido (dd-mm-aaaa)</h:outputLabel>-->
+            <!--<div class="col-sm-4">-->
+                <!--<h:inputText id="fechaHoraPedidoIt" value="#{abmpedidobean.pedido.fechayhoraPedido}" class="form-control" requiredMessage="Fecha y hora es requerido">-->
+                    <!--<f:validateRequired />-->
+                <!--</h:inputText>-->
+                <!--<h:message for="fechaHoraPedidoIt" styleClass="errorText" style="color: red"/>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="form-group">
-            <h:outputLabel class="control-label col-sm-4">Fecha y Hora Pedido (dd-mm-aaaa)</h:outputLabel>
+            <h:outputLabel class="control-label col-sm-4">Id Cliente</h:outputLabel>
             <div class="col-sm-4">
-                <h:inputText id="fechaHoraPedidoIt" value="#{abmpedidobean.pedido.fechayhoraPedido}" class="form-control" requiredMessage="Fecha y hora es requerido">
+                <h:selectOneMenu id="clienteidIt"
+                                 class="btn btn-default dropdown-toggle"
+                                 converter="#{clienteConverter}"
+                                 requiredMessage="Cliente es requerido"
+                                 value="#{abmpedidobean.pedido.cliente}">
+                    <f:selectItems value="#{abmclientebean.clientes}"
+                                   var="c"
+                                   itemLabel="#{c.nombreCliente} #{c.apellidoCliente}"/>
                     <f:validateRequired />
-                </h:inputText>
-                <h:message for="fechaHoraPedidoIt" styleClass="errorText" style="color: red"/>
+                </h:selectOneMenu>
+                <h:message for="clienteidIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">

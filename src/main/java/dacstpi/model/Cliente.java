@@ -246,24 +246,5 @@ public class Cliente extends BaseLongEntity {
                 this.pedidos = pedidos;
         }
 
-//    @Override
-//    public String toString() {
-//        return "Cliente{" +
-//                "usuarioCliente='" + usuarioCliente + '\'' +
-//                ", passwordCliente='" + passwordCliente + '\'' +
-//                ", nombreCliente='" + nombreCliente + '\'' +
-//                ", apellidoCliente='" + apellidoCliente + '\'' +
-//                ", telefonoCliente=" + telefonoCliente +
-//                ", emailCliente='" + emailCliente + '\'' +
-//                ", calleCliente='" + calleCliente + '\'' +
-//                ", numeroCalleCliente=" + numeroCalleCliente +
-//                ", infoAdicionalCliente='" + infoAdicionalCliente + '\'' +
-//                ", paisCliente='" + paisCliente + '\'' +
-//                ", provinciaCliente='" + provinciaCliente + '\'' +
-//                ", ciudadCliente='" + ciudadCliente + '\'' +
-//                ", codpostCliente=" + codpostCliente +
-//                ", dni=" + dni +
-//                ", pedidos=" + pedidos +
-//                '}';
-//    }
+
 }

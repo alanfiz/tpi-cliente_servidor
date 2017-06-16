@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -15,11 +16,11 @@ public class Pedido extends BaseLongEntity {
 
     @Column(name = "fechayhoraPedido")
     @NotNull
-    //@Temporal(TemporalType.TIMESTAMP)
+    @Temporal(TemporalType.TIMESTAMP)
 //    ^\d{2}-\d{2}-\d{4}
-    @Pattern(regexp="^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",
-            message="{invalid.Date}")
-    private String fechayhoraPedido;
+//    @Pattern(regexp="^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$",
+//            message="{invalid.Date}")
+    private Date fechayhoraPedido;
 
     @Column(name = "estadoPedido")
     @NotNull
@@ -49,7 +50,7 @@ public class Pedido extends BaseLongEntity {
     public Pedido() {
     }
 
-    public Pedido(@NotNull String fechayhoraPedido, @NotNull String estadoPedido, Cliente cliente, FormaPago formaPago, Venta venta) {
+    public Pedido(@NotNull Date fechayhoraPedido, @NotNull String estadoPedido, Cliente cliente, FormaPago formaPago, Venta venta) {
         this.fechayhoraPedido = fechayhoraPedido;
         this.estadoPedido = estadoPedido;
         this.cliente = cliente;
@@ -57,17 +58,17 @@ public class Pedido extends BaseLongEntity {
         this.venta = venta;
     }
 
-    public Pedido(@NotNull String fechayhoraPedido, @NotNull String estadoPedido) {
+    public Pedido(@NotNull Date fechayhoraPedido, @NotNull String estadoPedido) {
         this.fechayhoraPedido = fechayhoraPedido;
         this.estadoPedido = estadoPedido;
     }
 
     //@NotNull
-    public String getFechayhoraPedido() {
+    public Date getFechayhoraPedido() {
         return fechayhoraPedido;
     }
 
-    public void setFechayhoraPedido(@NotNull String fechayhoraPedido) {
+    public void setFechayhoraPedido(@NotNull Date fechayhoraPedido) {
         this.fechayhoraPedido = fechayhoraPedido;
     }
 

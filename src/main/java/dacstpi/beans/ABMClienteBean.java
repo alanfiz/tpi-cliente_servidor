@@ -8,11 +8,13 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 
 @ManagedBean(name = "abmclientebean")
 @ViewScoped
 public class ABMClienteBean {
     private Cliente cliente;
+    private Long id;
     @EJB
     private ClienteDao clienteDao;
     private List<Cliente> clienteList;
@@ -20,12 +22,27 @@ public class ABMClienteBean {
 
     @PostConstruct
     public void init(){
-        try {
-            this.cliente = new Cliente();
-            clienteList = clienteDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.cliente = new Cliente();
+                    clienteList = clienteDao.findAll();
+                }else {
+                    this.cliente = clienteDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public List<Cliente> getClientes(){
@@ -79,7 +96,7 @@ public class ABMClienteBean {
 
     public String editCliente(Cliente c){
         try {
-            cliente = clienteDao.findById(c.getId());
+            this.cliente = clienteDao.findById(c.getId());
         } catch (DaoException e) {
             e.printStackTrace();
         }
