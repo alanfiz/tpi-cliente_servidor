@@ -36,6 +36,14 @@
                 <h:outputText value="#{comision.nombreComision}"/>
             </h:column>
             <h:column>
+                <f:facet name="header">Comision Fija</f:facet>
+                <h:outputText value="#{comision.comisionFija.valorfijo}"/>
+            </h:column>
+            <h:column>
+                <f:facet name="header">Comision Porcentual</f:facet>
+                <h:outputText value="#{comision.comisionPorcentual.valorPorcentual}"/>
+            </h:column>
+            <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
                 <!--<h:commandButton action = "#{abmcomisionbean.editComision(comision)}" value="Editar" class="btn btn-primary">-->
                 <!--</h:commandButton>-->

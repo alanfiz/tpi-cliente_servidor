@@ -33,7 +33,34 @@
                 <h:message for="nombreComisionIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
-
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Id ComisionFija</h:outputLabel>
+            <div class="col-sm-4">
+                <h:selectOneMenu id="comisionFijaidIt"
+                                 class="btn btn-default dropdown-toggle"
+                                 converter="#{comisionFijaConverter}"
+                                 value="#{abmcomisionbean.comision.comisionFija}">
+                    <f:selectItem itemValue="#{null}" itemLabel="Sin valor fijo" />
+                    <f:selectItems value="#{abmcomisionfijabean.comisionFijas}"
+                                   var="c"
+                                   itemLabel="#{c.valorfijo}"/>
+                </h:selectOneMenu>
+            </div>
+        </div>
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Id ComisionPorcentual</h:outputLabel>
+            <div class="col-sm-4">
+                <h:selectOneMenu id="comisionPorcentualidIt"
+                                 class="btn btn-default dropdown-toggle"
+                                 converter="#{comisionPorcentualConverter}"
+                                 value="#{abmcomisionbean.comision.comisionPorcentual}">
+                    <f:selectItem itemValue="#{null}" itemLabel="Sin valor porcentual" />
+                    <f:selectItems value="#{abmcomisionporcentualbean.comisionPorcentuales}"
+                                   var="cp"
+                                   itemLabel="#{cp.valorPorcentual}"/>
+                </h:selectOneMenu>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">

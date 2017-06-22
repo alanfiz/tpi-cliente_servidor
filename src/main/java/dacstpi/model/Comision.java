@@ -74,4 +74,20 @@ public class Comision extends BaseLongEntity {
     public void setProveedores(List<Proveedor> proveedores) {
         this.proveedores = proveedores;
     }
+
+    public ComisionFija getComisionFija() {
+        return comisionFija;
+    }
+
+    public void setComisionFija(ComisionFija comisionFija) {
+        this.comisionFija = comisionFija;
+    }
+
+    public ComisionPorcentual getComisionPorcentual() {
+        return comisionPorcentual;
+    }
+
+    public void setComisionPorcentual(ComisionPorcentual comisionPorcentual) {
+        this.comisionPorcentual = comisionPorcentual;
+    }
 }
