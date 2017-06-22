@@ -10,6 +10,12 @@
     <title>Editar Forma de Pago</title>
     <h:outputStylesheet name="webjars/bootstrap/3.3.6/css/bootstrap.css"/>
 </h:head>
+
+<f:metadata>
+    <f:viewParam name="id" value="#{abmformapagobean.id}" />
+    <f:event type="preRenderView" listener="#{abmformapagobean.init}" />
+</f:metadata>
+
 <h:body>
     <h:form class="form-horizontal" id="form">
         <div class="form-group">

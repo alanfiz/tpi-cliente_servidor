@@ -10,6 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.Date;
 import java.util.List;
 
@@ -17,6 +18,7 @@ import java.util.List;
 @ViewScoped
 public class ABMPedidoBean {
     private Pedido pedido;
+    private Long id;
 //    private Cliente cliente;
     @EJB
     private PedidoDao pedidoDao;
@@ -26,12 +28,18 @@ public class ABMPedidoBean {
 
     @PostConstruct
     public void init(){
-        try {
-//            idCliente = null;
-            this.pedido = new Pedido();
-            pedidoList = pedidoDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.pedido = new Pedido();
+                    pedidoList = pedidoDao.findAll();
+                }else {
+                    this.pedido = pedidoDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -78,6 +86,14 @@ public class ABMPedidoBean {
         }
 
         return "ABMPedido.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Pedido getPedido() {

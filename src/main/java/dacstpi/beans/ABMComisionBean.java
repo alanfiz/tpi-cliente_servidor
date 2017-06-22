@@ -9,11 +9,13 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "abmcomisionbean")
 @ViewScoped
 public class ABMComisionBean {
+    private Long id;
     private Comision comision;
     @EJB
     private ComisionDao comisionDao;
@@ -21,11 +23,18 @@ public class ABMComisionBean {
 
     @PostConstruct
     public void init(){
-        try {
-            this.comision = new Comision();
-            comisionList = comisionDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.comision = new Comision();
+                    comisionList = comisionDao.findAll();
+                }else {
+                    this.comision = comisionDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -68,6 +77,14 @@ public class ABMComisionBean {
         }
 
         return "ABMComision.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Comision getComision() {

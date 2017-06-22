@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "abmproveedorbean")
@@ -18,14 +19,22 @@ public class ABMProveedorBean {
     @EJB
     private ProveedorDao proveedorDao;
     private List<Proveedor> proveedorList;
+    private Long id;
 
     @PostConstruct
     public void init(){
-        try {
-            this.proveedor = new Proveedor();
-            proveedorList = proveedorDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.proveedor = new Proveedor();
+                    proveedorList = proveedorDao.findAll();
+                }else {
+                    this.proveedor = proveedorDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -68,6 +77,14 @@ public class ABMProveedorBean {
         }
 
         return "ABMProveedor.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Proveedor getProveedor() {

@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "abmformapagobean")
@@ -17,14 +18,22 @@ public class ABMFormaPagoBean {
     @EJB
     private FormaPagoDao formaPagoDao;
     private List<FormaPago> formaPagoList;
+    private Long id;
 
     @PostConstruct
     public void init(){
-        try {
-            this.formaPago = new FormaPago();
-            formaPagoList = formaPagoDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.formaPago = new FormaPago();
+                    formaPagoList = formaPagoDao.findAll();
+                }else {
+                    this.formaPago = formaPagoDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -67,6 +76,14 @@ public class ABMFormaPagoBean {
         }
 
         return "ABMFormaPago.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public FormaPago getFormaPago() {

@@ -9,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "abmproductobean")
@@ -18,14 +19,22 @@ public class ABMProductoBean {
     @EJB
     private ProductoDao productoDao;
     private List<Producto> productoList;
+    private Long id;
 
     @PostConstruct
     public void init(){
-        try {
-            this.producto = new Producto();
-            productoList = productoDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.producto = new Producto();
+                    productoList = productoDao.findAll();
+                }else {
+                    this.producto = productoDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -68,6 +77,14 @@ public class ABMProductoBean {
         }
 
         return "ABMProducto.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public Producto getProducto() {

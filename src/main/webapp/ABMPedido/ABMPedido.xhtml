@@ -44,8 +44,11 @@
 
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
-                <h:commandButton action = "#{abmpedidobean.editPedido(pedido)}" value="Editar" class="btn btn-primary">
-                </h:commandButton>
+                <!--<h:commandButton action = "#{abmpedidobean.editPedido(pedido)}" value="Editar" class="btn btn-primary">-->
+                <!--</h:commandButton>-->
+                <h:link value="Editar" outcome="editPedido.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{pedido.id}" />
+                </h:link>
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Borrar</f:facet>-->

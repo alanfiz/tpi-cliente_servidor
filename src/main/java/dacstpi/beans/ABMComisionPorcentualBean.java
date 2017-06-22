@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.util.List;
 
 @ManagedBean(name = "abmcomisionporcentualbean")
@@ -17,14 +18,22 @@ public class ABMComisionPorcentualBean {
     @EJB
     private ComisionPorcentualDao comisionPorcentualDao;
     private List<ComisionPorcentual> comisionPorcentualList;
+    private Long id;
 
     @PostConstruct
     public void init(){
-        try {
-            this.comisionPorcentual = new ComisionPorcentual();
-            comisionPorcentualList = comisionPorcentualDao.findAll();
-        } catch (DaoException e) {
-            e.printStackTrace();
+        FacesContext context = FacesContext.getCurrentInstance();
+        if(!context.isPostback()) {
+            try {
+                if(id == null) {
+                    this.comisionPorcentual = new ComisionPorcentual();
+                    comisionPorcentualList = comisionPorcentualDao.findAll();
+                }else {
+                    this.comisionPorcentual = comisionPorcentualDao.findById(id);
+                }
+            } catch (DaoException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -67,6 +76,14 @@ public class ABMComisionPorcentualBean {
         }
 
         return "ABMComisionPorcentual.xhtml?faces-redirect=true";
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public ComisionPorcentual getComisionPorcentual() {

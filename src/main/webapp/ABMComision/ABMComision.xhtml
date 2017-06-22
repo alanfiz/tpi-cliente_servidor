@@ -37,8 +37,11 @@
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
-                <h:commandButton action = "#{abmcomisionbean.editComision(comision)}" value="Editar" class="btn btn-primary">
-                </h:commandButton>
+                <!--<h:commandButton action = "#{abmcomisionbean.editComision(comision)}" value="Editar" class="btn btn-primary">-->
+                <!--</h:commandButton>-->
+                <h:link value="Editar" outcome="editComision.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{comision.id}" />
+                </h:link>
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Borrar</f:facet>-->

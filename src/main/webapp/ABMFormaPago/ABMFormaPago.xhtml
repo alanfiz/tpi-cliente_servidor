@@ -39,8 +39,11 @@
 
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
-                <h:commandButton action = "#{abmformapagobean.editFormaPago(formapago)}" value="Editar" class="btn btn-primary">
-                </h:commandButton>
+                <!--<h:commandButton action = "#{abmformapagobean.editFormaPago(formapago)}" value="Editar" class="btn btn-primary">-->
+                <!--</h:commandButton>-->
+                <h:link value="Editar" outcome="editFormaPago.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{formapago.id}" />
+                </h:link>
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Borrar</f:facet>-->

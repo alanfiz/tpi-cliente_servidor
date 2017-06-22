@@ -37,8 +37,11 @@
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
-                <h:commandButton action = "#{abmcomisionporcentualbean.editComisionPorcentual(comisionPorcentual)}" value="Editar" class="btn btn-primary">
-                </h:commandButton>
+                <!--<h:commandButton action = "#{abmcomisionporcentualbean.editComisionPorcentual(comisionPorcentual)}" value="Editar" class="btn btn-primary">-->
+                <!--</h:commandButton>-->
+                <h:link value="Editar" outcome="editComisionPorcentual.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{comisionPorcentual.id}" />
+                </h:link>
             </h:column>
             <h:column>
                 <!--<f:facet name="header">Borrar</f:facet>-->
