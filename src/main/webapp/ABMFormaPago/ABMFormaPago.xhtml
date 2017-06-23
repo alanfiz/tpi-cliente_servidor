@@ -36,7 +36,10 @@
                 <f:facet name="header">Nombre</f:facet>
                 <h:outputText value="#{formapago.nombreFormaPago}"/>
             </h:column>
-
+            <h:column>
+                <f:facet name="header">Id Tarjeta</f:facet>
+                <h:outputText value="#{formapago.tarjeta.proveedorTarjeta} #{formapago.tarjeta.nombreTitularTarjeta}"/>
+            </h:column>
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
                 <!--<h:commandButton action = "#{abmformapagobean.editFormaPago(formapago)}" value="Editar" class="btn btn-primary">-->

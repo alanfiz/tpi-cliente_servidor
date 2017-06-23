@@ -49,6 +49,10 @@
                 <h:outputText value="#{producto.precioUnitarioProducto}"/>
             </h:column>
             <h:column>
+                <f:facet name="header">Id Proveedor</f:facet>
+                <h:outputText value="#{producto.proveedor.nombre}"/>
+            </h:column>
+            <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
                 <!--<h:commandButton action = "#{abmproductobean.editProducto(producto)}" value="Editar" class="btn btn-primary">-->
                 <!--</h:commandButton>-->
