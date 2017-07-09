@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:h="http://java.sun.com/jsf/composite">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Articulo</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="resources/css/shop-homepage.css" rel="stylesheet">
+    <link href="resources/css/mostrarArticulo.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"/>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"/>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index2.html">Inicio</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">Ofertas</a>
+                </li>
+                <li>
+                    <a href="#">Servicios</a>
+                </li>
+                <li>
+                    <a href="#">Contacto</a>
+                </li>
+            </ul>
+            <form class="navbar-form navbar-left">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Buscar</button>
+            </form>
+            <div class="navbar-right ">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <li class="dropdown">
+                    <a href="http://www.jquery2dotnet.com"  type="button" class="navbar-brand dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
+                    <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
+                                        </div>
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox"> Remember me
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-default btn-block" style="color: #c6c6c6 ; background: black">Sign in</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a type="button" class="btn btn-default btn-block"  href="ABMCliente/createCliente.xhtml" style="color: #c6c6c6 ; background: black">Create New Account</a>
+                            <!--<input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">-->
+                            <!--<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">-->
+                        </li>
+                    </ul>
+                </li>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4 item-photo">
+                <!-- Aca va ir las imagenes que traiga el articulo, habria que hacer un carrousel si son mas de una -->
+                <img style="max-width:100%;" src="https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg" />
+            </div>
+
+            <!-- Aca esta el carrousel para las imagenes -->
+            <!--<div class="row carousel-holder col-xs-4">-->
+
+                    <!--<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">-->
+                        <!--<ol class="carousel-indicators">-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="1"></li>-->
+                            <!--<li data-target="#carousel-example-generic" data-slide-to="2"></li>-->
+                        <!--</ol>-->
+                        <!--<div class="carousel-inner">-->
+
+                            <!--<div class="item active">-->
+                                <!--<img class="slide-image" src="https://ak1.ostkcdn.com/images/products/8818677/Samsung-Galaxy-S4-I337-16GB-AT-T-Unlocked-GSM-Android-Cell-Phone-85e3430e-6981-4252-a984-245862302c78_600.jpg" alt="">-->
+                            <!--</div>-->
+                            <!--<div class="item">-->
+                                <!--<img class="slide-image" src="http://cdn.imageserver.rapidcore.com.ar/api/file/c6fc638eb5297be3fdc2fa48dfe48a8e2bdf0cbf.jpg" alt="">-->
+                            <!--</div>-->
+                            <!--<div class="item">-->
+                                <!--<img class="slide-image" src="http://cdn.imageserver.rapidcore.com.ar/api/file/f1f91af6c36897dc8677100ea20e173c25218d6a.jpg" alt="">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">-->
+                            <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
+                        <!--</a>-->
+                        <!--<a class="right carousel-control" href="#carousel-example-generic" data-slide="next">-->
+                            <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
+                        <!--</a>-->
+                    <!--</div>-->
+            <!--</div>-->
+
+
+            <div class="col-xs-5" style="border:0px solid gray">
+                <!-- Datos del vendedor y titulo del producto -->
+                <!-- Aca hay que traer el nombre del producto y nombre del que vende -->
+                <h3>Samsung Galaxy S4 I337 16GB 4G LTE Unlocked GSM Android Cell Phone</h3>
+                <h5 style="color:#337ab7">vendido por <a href="#">Samsung</a> · <small style="color:#337ab7">(5054 ventas)</small></h5>
+
+                <!-- Precios -->
+                <h6 class="title-price"><small>PRECIO</small></h6>
+                <h3 style="margin-top:0px;">U$S 399</h3> <!-- Aca va ir el precio que traigamos de la pagina -->
+
+                <!-- Detalles especificos del producto -->
+                <!-- Aca podes poner todos los atributos que quieras, pongamos los basicos asi cualquier producto en general va tener los mismos -->
+                <div class="section">
+                    <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>
+                    <div>
+                        <div class="attr" style="width:25px;background:#5a5a5a;"></div>
+                        <div class="attr" style="width:25px;background:white;"></div>
+                    </div>
+                </div>
+                <div class="section" style="padding-bottom:5px;">
+                    <h6 class="title-attr"><small>CAPACIDAD</small></h6>
+                    <div>
+                        <div class="attr2">16 GB</div>
+                        <div class="attr2">32 GB</div>
+                    </div>
+                </div>
+                <div class="section" style="padding-bottom:20px;">
+                    <h6 class="title-attr"><small>CANTIDAD</small></h6>
+                    <div>
+                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                        <input value="1" />
+                        <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                    </div>
+                </div>
+
+                <!-- Botones de compra -->
+                <div class="section" style="padding-bottom:20px;">
+                    <button class="btn btn-default" style="color: #c6c6c6 ; background: black"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carro</button>
+                </div>
+            </div>
+
+            <div class="col-xs-9">
+                <ul class="menu-items">
+                    <li class="active">Detalle del producto</li>
+                    <li>Garantía</li>
+                    <li>Vendedor</li>
+                    <li>Envío</li>
+                </ul>
+                <div style="width:100%;border-top:1px solid silver">
+                    <p style="padding:15px;">
+                        <small>
+                            BREVE DESCRIPCION
+                        </small>
+                    </p>
+                    <small>
+                        <ul>
+                            <li>CARACTERISTICAS</li>
+                        </ul>
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container -->
+
+
+
+
+<div class="container">
+
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Copyright &copy; Your Website 2014</p>
+            </div>
+        </div>
+    </footer>
+
+</div>
+<!-- /.container -->
+
+<!-- jQuery -->
+<script src="webjars/jquery/1.11.1/jquery.js"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
