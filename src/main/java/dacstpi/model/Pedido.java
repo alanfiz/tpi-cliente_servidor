@@ -7,6 +7,7 @@ import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Pedido")
@@ -30,16 +31,15 @@ public class Pedido extends BaseLongEntity {
     //Relaciones de tabla
 
     @JoinColumn(name = "id_cliente")
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne
     private Cliente cliente;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name = "id_formapago")
     private FormaPago formaPago;
 
-    @ManyToMany (fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_producto")
-    private List<Producto> productos;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "pedido")
+    private Set<PedProd> productos;
 
     @OneToOne
     @JoinColumn(name = "id_venta")
@@ -97,11 +97,11 @@ public class Pedido extends BaseLongEntity {
         this.formaPago = formaPago;
     }
 
-    public List<Producto> getProductos() {
+    public Set<PedProd> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(Set<PedProd> productos) {
         this.productos = productos;
     }
 

@@ -15,7 +15,7 @@ public class FormaPago extends BaseLongEntity
 
     //Relaciones de tabla
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany()
     @JoinColumn(name = "id_pedido")
     private List<Pedido> pedidos;
 

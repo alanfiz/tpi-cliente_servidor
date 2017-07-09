@@ -5,6 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Comision", schema = "")
@@ -19,13 +20,12 @@ public class Comision extends BaseLongEntity {
 
     //Relaciones de tabla
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_producto")
-    private List<Producto> productos;
+    @OneToMany(mappedBy = "comision")
+//    @JoinColumn(name = "id_producto")
+    private Set<ProdCom> productos;
 
-    @ManyToMany
-    @JoinColumn(name = "id_proveedor")
-    private List<Proveedor> proveedores;
+    @OneToMany(mappedBy = "comision")
+    private Set<ProvCom> proveedores;
 
     @OneToOne
     @JoinColumn(name = "id_comisionFija")
@@ -59,19 +59,19 @@ public class Comision extends BaseLongEntity {
         this.nombreComision = nombreComision;
     }
 
-    public List<Producto> getProductos() {
+    public Set<ProdCom> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<Producto> productos) {
+    public void setProductos(Set<ProdCom> productos) {
         this.productos = productos;
     }
 
-    public List<Proveedor> getProveedores() {
+    public Set<ProvCom> getProveedores() {
         return proveedores;
     }
 
-    public void setProveedores(List<Proveedor> proveedores) {
+    public void setProveedores(Set<ProvCom> proveedores) {
         this.proveedores = proveedores;
     }
 

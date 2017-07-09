@@ -2,6 +2,7 @@ package dacstpi.model;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Producto")
@@ -22,17 +23,18 @@ public class Producto extends BaseLongEntity
     @Column(name = "precioUnitarioProducto")
     private Double precioUnitarioProducto;
 
+    @Column(name = "monedaProducto")
+    private String monedaProducto;
+
     //Relaciones de tabla
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_pedido")
-    private List<Pedido> pedidos;
+    @OneToMany(mappedBy = "producto")
+    private Set<PedProd> pedidos;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinColumn(name = "id_comision")
-    private List<Comision> comision;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "producto")
+    private Set<ProdCom> comision;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne()
     @JoinColumn(name = "id_proveedor")
     private Proveedor proveedor;
 
@@ -88,19 +90,19 @@ public class Producto extends BaseLongEntity
         this.precioUnitarioProducto = precioUnitarioProducto;
     }
 
-    public List<Pedido> getPedido() {
+    public Set<PedProd> getPedido() {
         return pedidos;
     }
 
-    public void setPedido(List<Pedido> pedido) {
+    public void setPedido(Set<PedProd> pedido) {
         this.pedidos = pedido;
     }
 
-    public List<Comision> getComision() {
+    public Set<ProdCom> getComision() {
         return comision;
     }
 
-    public void setComision(List<Comision> comision) {
+    public void setComision(Set<ProdCom> comision) {
         this.comision = comision;
     }
 
@@ -110,5 +112,13 @@ public class Producto extends BaseLongEntity
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
+    }
+
+    public String getMonedaProducto() {
+        return monedaProducto;
+    }
+
+    public void setMonedaProducto(String monedaProducto) {
+        this.monedaProducto = monedaProducto;
     }
 }

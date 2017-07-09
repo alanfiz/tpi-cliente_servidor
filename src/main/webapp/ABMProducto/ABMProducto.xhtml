@@ -53,11 +53,38 @@
                 <h:outputText value="#{producto.proveedor.nombre}"/>
             </h:column>
             <h:column>
+                <f:facet name="header">Comisiones</f:facet>
+                <h:dataTable value="#{producto.comision}" var="prodcom"
+                             class="table table-striped table-hover table-bordered">
+                    <h:column>
+                        <f:facet name="header">Id Comision</f:facet>
+                        <h:outputText value="#{prodcom.comision.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre Comision</f:facet>
+                        <h:outputText value="#{prodcom.comision.nombreComision}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Valor Fijo Comision</f:facet>
+                        <h:outputText value="#{prodcom.comision.comisionFija.valorfijo}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Valor Porcentual Comision</f:facet>
+                        <h:outputText value="#{prodcom.comision.comisionPorcentual.valorPorcentual}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:column>
+            <h:column>
+                <h:link value="Agregar Com" outcome="agregarComisiones.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{producto.id}" />
+                </h:link>
+            </h:column>
+            <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
                 <!--<h:commandButton action = "#{abmproductobean.editProducto(producto)}" value="Editar" class="btn btn-primary">-->
                 <!--</h:commandButton>-->
                 <h:link value="Editar" outcome="editProducto.xhtml" class="btn btn-primary">
-                    <f:param name="id" value="#{producto.id}" />
+                    <!--<f:param name="id" value="#{producto.id}" />-->
                 </h:link>
             </h:column>
             <h:column>

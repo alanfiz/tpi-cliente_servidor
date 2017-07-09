@@ -30,6 +30,10 @@
         <h:dataTable value="#{abmpedidobean.pedidos}" var="pedido"
                      class="table table-striped table-hover table-bordered">
             <h:column>
+                <f:facet name="header">Id Pedido</f:facet>
+                <h:outputText value="#{pedido.id}"/>
+            </h:column>
+            <h:column>
                 <f:facet name="header">Estado Pedido</f:facet>
                 <h:outputText value="#{pedido.estadoPedido}"/>
             </h:column>
@@ -41,7 +45,29 @@
                 <f:facet name="header">Cliente</f:facet>
                 <h:outputText value="#{pedido.cliente.usuarioCliente}"/>
             </h:column>
-
+            <h:column>
+                <f:facet name="header">Productos</f:facet>
+                <h:dataTable value="#{pedido.productos}" var="pedProd"
+                             class="table table-striped table-hover table-bordered">
+                    <h:column>
+                        <f:facet name="header">Id pedido</f:facet>
+                        <h:outputText value="#{pedProd.pedido.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Id producto</f:facet>
+                        <h:outputText value="#{pedProd.producto.id}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">Nombre producto</f:facet>
+                        <h:outputText value="#{pedProd.producto.nombreProducto}"/>
+                    </h:column>
+                </h:dataTable>
+            </h:column>
+            <h:column>
+                <h:link value="Agregar Prod" outcome="agregarProductos.xhtml" class="btn btn-primary">
+                    <f:param name="id" value="#{pedido.id}" />
+                </h:link>
+            </h:column>
             <h:column>
                 <!--<f:facet name="header">Editar</f:facet>-->
                 <!--<h:commandButton action = "#{abmpedidobean.editPedido(pedido)}" value="Editar" class="btn btn-primary">-->

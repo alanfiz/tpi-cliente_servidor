@@ -2,15 +2,22 @@ package dacstpi.beans;
 
 import dacstpi.dao.ClienteDao;
 import dacstpi.dao.DaoException;
+import dacstpi.dao.PedProdDao;
 import dacstpi.dao.PedidoDao;
 import dacstpi.model.Cliente;
+import dacstpi.model.PedProd;
 import dacstpi.model.Pedido;
+import dacstpi.model.Producto;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.*;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -18,21 +25,25 @@ import java.util.List;
 @ViewScoped
 public class ABMPedidoBean {
     private Pedido pedido;
+    private PedProd pedProd;
     private Long id;
-//    private Cliente cliente;
+    //    private Cliente cliente;
     @EJB
     private PedidoDao pedidoDao;
     @EJB
-    private ClienteDao clienteDao;
+    private PedProdDao pedProdDao;
     private List<Pedido> pedidoList;
+    private EntityManager em;
 
     @PostConstruct
     public void init(){
         FacesContext context = FacesContext.getCurrentInstance();
         if(!context.isPostback()) {
             try {
+
                 if(id == null) {
                     this.pedido = new Pedido();
+                    this.pedProd = new PedProd();
                     pedidoList = pedidoDao.findAll();
                 }else {
                     this.pedido = pedidoDao.findById(id);
@@ -88,8 +99,29 @@ public class ABMPedidoBean {
         return "ABMPedido.xhtml?faces-redirect=true";
     }
 
+
+    public String agregarProducto(Producto prod){
+        try {
+            pedProd.setPedido(pedidoDao.findById(pedido.getId()));
+            pedProd.setProducto(prod);
+            pedProdDao.persist(this.pedProd);
+            pedido.getProductos().add(pedProd);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        return "ABMPedido.xhtml?faces-redirect=true";
+    }
+
     public Long getId() {
         return id;
+    }
+
+    public PedProd getPedProd() {
+        return pedProd;
+    }
+
+    public void setPedProd(PedProd pedProd) {
+        this.pedProd = pedProd;
     }
 
     public void setId(Long id) {

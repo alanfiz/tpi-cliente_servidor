@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="dacstpig3:war exploded">
-    <output-path>$PROJECT_DIR$/target/dacstpi-g3-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/target/dacstpi-g3</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -10,10 +10,14 @@
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:6.0" />
           <element id="library" level="project" name="Maven: org.webjars:bootstrap:3.3.6" />
           <element id="library" level="project" name="Maven: org.webjars:jquery:1.11.1" />
+          <element id="library" level="project" name="Maven: org.json:json:20160810" />
+          <element id="library" level="project" name="Maven: com.googlecode.json-simple:json-simple:1.1.1" />
+          <element id="library" level="project" name="Maven: junit:junit:4.10" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.1" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/dacstpi-g3-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/dacstpi-g3/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="dacstpig3/web/Web" />
     </root>
