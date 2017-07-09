@@ -5,7 +5,7 @@
  http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
 
     <persistence-unit name="persistencia" transaction-type="JTA">
-        <jta-data-source>java:jboss/datasources/PruebaDS</jta-data-source>
+        <jta-data-source>java:jboss/datasources/MySqlDS</jta-data-source>
 
         <class>dacstpi.model.Cliente</class>
         <class>dacstpi.model.FormaPago</class>
