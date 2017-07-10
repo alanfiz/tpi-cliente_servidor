@@ -60,7 +60,22 @@
                 <h:message for="preciounitarioProductoIt" styleClass="errorText" style="color: red"/>
             </div>
         </div>
-
+        <div class="form-group">
+            <h:outputLabel class="control-label col-sm-4">Id Proveedor</h:outputLabel>
+            <div class="col-sm-4">
+                <h:selectOneMenu id="proveedoridIt"
+                                 class="btn btn-default dropdown-toggle"
+                                 converter="#{proveedorConverter}"
+                                 requiredMessage="Proveedor es requerido"
+                                 value="#{abmproductobean.producto.proveedor}">
+                    <f:selectItems value="#{abmproveedorbean.proveedores}"
+                                   var="p"
+                                   itemLabel="#{p.nombre}"/>
+                    <f:validateRequired />
+                </h:selectOneMenu>
+                <h:message for="proveedoridIt" styleClass="errorText" style="color: red"/>
+            </div>
+        </div>
         <div class="form-group">
             <div class="col-sm-4"></div>
             <div class="col-sm-4">

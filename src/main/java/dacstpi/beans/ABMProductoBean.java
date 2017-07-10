@@ -2,7 +2,10 @@ package dacstpi.beans;
 
 
 import dacstpi.dao.DaoException;
+import dacstpi.dao.ProdComDao;
 import dacstpi.dao.ProductoDao;
+import dacstpi.model.Comision;
+import dacstpi.model.ProdCom;
 import dacstpi.model.Producto;
 
 import javax.annotation.PostConstruct;
@@ -16,8 +19,13 @@ import java.util.List;
 @ViewScoped
 public class ABMProductoBean {
     private Producto producto;
+    private ProdCom prodCom;
+
     @EJB
     private ProductoDao productoDao;
+    @EJB
+    private ProdComDao prodComDao;
+
     private List<Producto> productoList;
     private Long id;
 
@@ -28,6 +36,7 @@ public class ABMProductoBean {
             try {
                 if(id == null) {
                     this.producto = new Producto();
+                    this.prodCom = new ProdCom();
                     productoList = productoDao.findAll();
                 }else {
                     this.producto = productoDao.findById(id);
@@ -76,6 +85,18 @@ public class ABMProductoBean {
             System.out.println(e.getMessage());
         }
 
+        return "ABMProducto.xhtml?faces-redirect=true";
+    }
+
+    public String agregarComision(Comision comision){
+        try {
+            prodCom.setProducto(this.producto);
+            prodCom.setComision(comision);
+            prodComDao.persist(this.prodCom);
+            producto.getComision().add(prodCom);
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
         return "ABMProducto.xhtml?faces-redirect=true";
     }
 

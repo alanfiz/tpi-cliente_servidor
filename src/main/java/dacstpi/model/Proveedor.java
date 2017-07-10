@@ -4,6 +4,7 @@ import javax.validation.constraints.NotNull;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "Proveedor")
@@ -18,11 +19,10 @@ public class Proveedor extends BaseLongEntity
 
     //Relaciones de tabla
 
-    @ManyToMany
-    @JoinColumn(name = "id_comision")
-    private List<Comision> comision;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "proveedor")
+    private Set<ProvCom> comision;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany()
     @JoinColumn(name = "id_producto")
     private List<Producto> productos;
 
@@ -44,11 +44,11 @@ public class Proveedor extends BaseLongEntity
         this.nombre = nombre;
     }
 
-    public List<Comision> getComision() {
+    public Set<ProvCom> getComision() {
         return comision;
     }
 
-    public void setComision(List<Comision> comision) {
+    public void setComision(Set<ProvCom> comision) {
         this.comision = comision;
     }
 
