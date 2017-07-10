@@ -63,9 +63,12 @@
             </ul>
             <form class="navbar-form navbar-left">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search"/>
+                    <!--<input type="text" class="form-control" placeholder="Search"/>-->
+                    <h:inputText id="marcaProductoIt" value="#{mllistaproductosbean.query}" class="form-control"
+                                 placeholder="Search"/>
                 </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
+                <!--<button type="submit" class="btn btn-default">Buscar</button>-->
+                <h:commandButton value="Buscar" action="#{mllistaproductosbean.sendGet}" class="btn btn-default"/>
             </form>
             <div class="navbar-right ">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -160,7 +163,11 @@
             <!--</h:form>-->
 
             <h:form>
+<<<<<<< HEAD
                 <p:dataScroller value="#{abmproductobean.productos}" var="producto" chunkSize="10">
+=======
+                <p:dataScroller value="#{mllistaproductosbean.listaProducto}" var="producto" chunkSize="10">
+>>>>>>> origin/master
                     <f:facet name="header">
                         Lista de Articulos
                     </f:facet>
