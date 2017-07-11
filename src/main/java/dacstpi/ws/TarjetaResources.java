@@ -1,9 +1,5 @@
 package dacstpi.ws;
 
-/**
- * Created by pablo on 16/06/2017.
- */
-
 import dacstpi.dao.DaoException;
 import dacstpi.dao.TarjetaDao;
 import dacstpi.model.Tarjeta;
@@ -21,13 +17,13 @@ public class TarjetaResources {
 
     @EJB
     private TarjetaDao dao;
-
+    private List<Tarjeta> listTarjeta;
 
     @GET
     @Produces ("application/json; charset=UTF-8")
     public List<Tarjeta> tarjetas() {
         try {
-            return dao.findAll();
+            listTarjeta =  dao.findAll();
         } catch (DaoException e) {
             e.printStackTrace();
         }

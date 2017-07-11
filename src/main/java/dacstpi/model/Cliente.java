@@ -87,7 +87,7 @@ public class Cliente extends BaseLongEntity {
 
         //Relaciones de tabla
 
-        @OneToMany()
+        @OneToMany(fetch = FetchType.EAGER)
         @JoinColumn(name = "id_pedido")
         private List<Pedido> pedidos;
 

@@ -1,11 +1,15 @@
 package dacstpi.beans;
 
+import dacstpi.dao.DaoException;
 import dacstpi.model.Producto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
@@ -16,12 +20,11 @@ import java.util.ArrayList;
 @ViewScoped
 public class MLListaProductosBean {
 
-    ArrayList<Producto> listaProducto = new ArrayList();
-    String query = new String();
+    private ArrayList<Producto> listaProducto;
+    private String query;
 
     // HTTP GET request
     public void sendGet() throws Exception {
-        Producto p = new Producto();
         listaProducto = new ArrayList<>();
 
         String url = "https://api.mercadolibre.com/sites/MLA/search?q=" + query;
