@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Carrito</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link href="resources/css/shop-homepage.css" rel="stylesheet"/>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"/>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"/>
+    <![endif]-->
+
+</h:head>
+<f:metadata>
+    <f:viewParam name="id" value="#{loginbean.id}" />
+    <f:event type="preRenderView" listener="#{loginbean.init}" />
+</f:metadata>
+<h:body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index2.xhtml">Inicio</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Ofertas</a>
+                    </li>
+                    <li>
+                        <a href="#">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                    <li>
+                        <a href="articulos.xhtml">Buscar Articulos</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left" >
+                    <div class="form-group" style="display: none">
+                        <!--<input type="text" class="form-control" placeholder="Search"/>-->
+                        <h:inputText id="queryIt" value="#{mllistaproductosbean.query}" class="form-control"
+                                     placeholder="Search" style="display: none"/>
+                    </div>
+                    <!--<button type="submit" class="btn btn-default">Buscar</button>-->
+                    <h:commandButton value="Buscar" action="#{mllistaproductosbean.sendGet}" class="btn btn-default" style="display: none"/>
+                </form>
+                <div class="navbar-right " >
+
+                    <h:outputText value="#{loginbean.cliente.usuarioCliente}" rendered="#{loginbean.logueado}"/>
+                    <h:link type="button" class="btn btn-default btn-block"  outcome="login" style="color: #c6c6c6 ; background: black" rendered="#{!loginbean.logueado}" value="Sign in"/>
+                    <!--<a type="button" class="btn btn-default btn-block"  href="login.xhtml" style="color: #c6c6c6 ; background: black" >SignIn</a>-->
+
+                </div>
+                <!--<form class="navbar-form navbar-left">-->
+                    <!--<div class="form-group">-->
+                        <!--<input type="text" class="form-control" placeholder="Search"/>-->
+                    <!--</div>-->
+                    <!--<button type="submit" class="btn btn-default">Buscar</button>-->
+                <!--</form>-->
+
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="row">
+            <h:form>
+                <div class="col-xs-12 col-md-8">
+                    <hr class="hidden-md hidden-lg"/>
+                    <h3>Carrito de compras</h3>
+
+                    <h:dataTable value="#{abmproductobean.productos}" var="producto"
+                                 class="table table-bordered table-striped">
+                        <h:column>
+                            <f:facet name="header">Producto</f:facet>
+                            <h:outputText value="#{producto.nombreProducto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Moneda</f:facet>
+                            <h:outputText value="#{producto.monedaProducto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Precio Unitario</f:facet>
+                            <h:outputText value="#{producto.precioUnitarioProducto}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Origen</f:facet>
+                            <h:outputText value="#{producto.origenProducto}"/>
+                        </h:column>
+                        <h:column>
+                            <h:commandButton action = "#{carritobean.quitarProducto(producto)}" value="Quitar Producto" class="btn btn-danger">
+                            </h:commandButton>
+                        </h:column>
+                    </h:dataTable>
+                    <!--<table class="table table-bordered table-striped">-->
+                    <!--<thead>-->
+                    <!--<tr>-->
+                    <!--<th width="30%">Producto</th>-->
+                    <!--<th width="10%">Cantidad</th>-->
+                    <!--<th width="25%">Precio unitario</th>-->
+                    <!--<th width="25%">Total</th>-->
+                    <!--<th width="10%">Eliminar</th>-->
+                    <!--</tr>-->
+                    <!--</thead>-->
+                    <!--<tbody id="tblCarrito" >-->
+                    <!--<tr>-->
+                    <!--<td colspan="5">No hay productos en el carrito</td>-->
+                    <!--</tr>-->
+                    <!--</tbody>-->
+                    <!--</table>-->
+                    <!--<button type="button" class="btn btn-default" style="color: #c6c6c6 ; background: black">Finalizar Compra</button>-->
+                    <h:commandButton action = "#{carritobean.vaciarCarro()}" value="Vaciar Carro" class="btn btn-default" style="color: #c6c6c6 ; background: black"/>
+                </div>
+
+                <div class="col-xs-12 col-md-8">
+                <hr class="hidden-md hidden-lg"/>
+                <h3>Seleccionar Forma de Pago</h3>
+                    <div class="col-sm-4">
+                        <h:selectOneMenu id="formapagoIt"
+                                         class="btn btn-default dropdown-toggle"
+                                         value="#{carritobean.formaPago}">
+                            <f:selectItems value="#{abmformapagobean.formaPagos}"
+                                           var="fp"
+                                           itemLabel="#{fp.nombreFormaPago}"/>
+                            <f:validateRequired />
+                        </h:selectOneMenu>
+                    </div>
+                    <f:facet name="Total  "/>
+                    <h:outputLabel value="#{carritobean.total}"/>
+                    <h:commandButton action = "#{carritobean.vaciarCarro()}" value="Finalizar Compra" class="btn btn-default" style="color: #c6c6c6 ; background: black"/>
+                </div>
+            </h:form>
+        </div>
+    </div>
+
+
+    <!-- /.container -->
+
+    <div class="container">
+
+        <hr></hr>
+
+        <!-- Footer -->
+        <!--<footer>-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-12">-->
+                    <!--<p>Copyright &copy; Your Website 2014</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</footer>-->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="webjars/jquery/1.11.1/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</h:body>
+
+</html>

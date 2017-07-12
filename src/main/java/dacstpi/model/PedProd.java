@@ -12,7 +12,7 @@ public class PedProd extends BaseLongEntity {
 
     //Relaciones de tabla
 
-    @ManyToOne()
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "id_pedido")
     private Pedido pedido;
 

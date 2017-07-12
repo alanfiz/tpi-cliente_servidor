@@ -26,6 +26,9 @@ public class Producto extends BaseLongEntity
     @Column(name = "monedaProducto")
     private String monedaProducto;
 
+    @Column(name = "imagenProducto")
+    private String imagenProducto;
+
     //Relaciones de tabla
 
     @OneToMany(mappedBy = "producto")
@@ -120,5 +123,13 @@ public class Producto extends BaseLongEntity
 
     public void setMonedaProducto(String monedaProducto) {
         this.monedaProducto = monedaProducto;
+    }
+
+    public String getImagenProducto() {
+        return imagenProducto;
+    }
+
+    public void setImagenProducto(String imagenProducto) {
+        this.imagenProducto = imagenProducto;
     }
 }

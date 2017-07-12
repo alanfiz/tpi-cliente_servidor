@@ -87,7 +87,7 @@ public class Cliente extends BaseLongEntity {
 
         //Relaciones de tabla
 
-        @OneToMany()
+        @OneToMany(fetch = FetchType.EAGER)
         @JoinColumn(name = "id_pedido")
         private List<Pedido> pedidos;
 
@@ -96,7 +96,12 @@ public class Cliente extends BaseLongEntity {
         public Cliente() {
         }
 
-        public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull String telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
+    public Cliente(Long id) {
+            this.setId(id);
+    }
+
+
+    public Cliente(@NotNull String usuarioCliente, @NotNull String passwordCliente, @NotNull String nombreCliente, @NotNull String apellidoCliente, @NotNull String telefonoCliente, @NotNull String emailCliente, @NotNull String calleCliente, @NotNull Integer numeroCalleCliente, String infoAdicionalCliente, @NotNull String paisCliente, @NotNull String provinciaCliente, @NotNull String ciudadCliente, @NotNull Integer codpostCliente, @NotNull Integer dni) {
                 this.usuarioCliente = usuarioCliente;
                 this.passwordCliente = passwordCliente;
                 this.nombreCliente = nombreCliente;

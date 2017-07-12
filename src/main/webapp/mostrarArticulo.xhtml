@@ -1,22 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:h="http://java.sun.com/jsf/composite">
+<html lang="en"  xmlns:p="http://primefaces.org/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:required="http://java.sun.com/jsf/composite">
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<h:head>
 
-    <title>Articulo</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    <title>Borchi-Shop</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet">
+    <link href="webjars/bootstrap/3.3.6/css/bootstrap.css" rel="stylesheet"/>
 
     <!-- Custom CSS -->
-    <link href="resources/css/shop-homepage.css" rel="stylesheet">
-    <link href="resources/css/mostrarArticulo.css" rel="stylesheet">
+    <link href="resources/css/shop-homepage.css" rel="stylesheet"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -25,90 +28,55 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"/>
     <![endif]-->
 
-</head>
+</h:head>
 
-<body>
+<h:body>
 
-<!-- Navigation -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index2.html">Inicio</a>
-        </div>
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li>
-                    <a href="#">Ofertas</a>
-                </li>
-                <li>
-                    <a href="#">Servicios</a>
-                </li>
-                <li>
-                    <a href="#">Contacto</a>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-left">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Buscar</button>
-            </form>
-            <div class="navbar-right ">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+                    <span class="icon-bar"/>
+                    <span class="icon-bar"/>
+                    <span class="icon-bar"/>
                 </button>
-                <li class="dropdown">
-                    <a href="http://www.jquery2dotnet.com"  type="button" class="navbar-brand dropdown-toggle" data-toggle="dropdown">Sign in <b class="caret"></b></a>
-                    <ul class="dropdown-menu" style="padding: 15px;min-width: 250px;">
-                        <li>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                                        <div class="form-group">
-                                            <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                                            <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="sr-only" for="exampleInputPassword2">Password</label>
-                                            <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                        </div>
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> Remember me
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-default btn-block" style="color: #c6c6c6 ; background: black">Sign in</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
-                            <a type="button" class="btn btn-default btn-block"  href="ABMCliente/createCliente.xhtml" style="color: #c6c6c6 ; background: black">Create New Account</a>
-                            <!--<input class="btn btn-primary btn-block" type="button" id="sign-in-google" value="Sign In with Google">-->
-                            <!--<input class="btn btn-primary btn-block" type="button" id="sign-in-twitter" value="Sign In with Twitter">-->
-                        </li>
-                    </ul>
-                </li>
+                <a class="navbar-brand" href="index2.xhtml">Inicio</a>
             </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">Ofertas</a>
+                    </li>
+                    <li>
+                        <a href="#">Servicios</a>
+                    </li>
+                    <li>
+                        <a href="#">Contacto</a>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <!--<input type="text" class="form-control" placeholder="Search"/>-->
+                        <h:inputText id="marcaProductoIt" value="#{mllistaproductosbean.query}" class="form-control"
+                                     placeholder="Search"/>
+                    </div>
+                    <!--<button type="submit" class="btn btn-default">Buscar</button>-->
+                    <h:commandButton value="Buscar" action="#{mllistaproductosbean.sendGet}" class="btn btn-default"/>
+                </form>
+                <div class="navbar-right " >
+
+                    <a type="button" class="btn btn-default btn-block"  href="login.xhtml" style="color: #c6c6c6 ; background: black" >SignIn</a>
+
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.navbar-collapse -->
-    </div>
-    <!-- /.container -->
-</nav>
+        <!-- /.container -->
+    </nav>
 
 
 
@@ -168,8 +136,8 @@
                 <div class="section">
                     <h6 class="title-attr" style="margin-top:15px;" ><small>COLOR</small></h6>
                     <div>
-                        <div class="attr" style="width:25px;background:#5a5a5a;"></div>
-                        <div class="attr" style="width:25px;background:white;"></div>
+                        <div class="attr" style="width:25px;background:#5a5a5a;"/>
+                        <div class="attr" style="width:25px;background:white;"/>
                     </div>
                 </div>
                 <div class="section" style="padding-bottom:5px;">
@@ -182,15 +150,15 @@
                 <div class="section" style="padding-bottom:20px;">
                     <h6 class="title-attr"><small>CANTIDAD</small></h6>
                     <div>
-                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"></span></div>
+                        <div class="btn-minus"><span class="glyphicon glyphicon-minus"/></div>
                         <input value="1" />
-                        <div class="btn-plus"><span class="glyphicon glyphicon-plus"></span></div>
+                        <div class="btn-plus"><span class="glyphicon glyphicon-plus"/></div>
                     </div>
                 </div>
 
                 <!-- Botones de compra -->
                 <div class="section" style="padding-bottom:20px;">
-                    <button class="btn btn-default" style="color: #c6c6c6 ; background: black"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Agregar al carro</button>
+                    <button class="btn btn-default" style="color: #c6c6c6 ; background: black"><span style="margin-right:20px" class="glyphicon glyphicon-shopping-cart" aria-hidden="true"/> Agregar al carro</button>
                 </div>
             </div>
 
@@ -225,13 +193,13 @@
 
 <div class="container">
 
-    <hr>
+    <hr/>
 
     <!-- Footer -->
     <footer>
         <div class="row">
             <div class="col-lg-12">
-                <p>Copyright &copy; Your Website 2014</p>
+                <p>Copyright Your Website 2017</p>
             </div>
         </div>
     </footer>
@@ -240,11 +208,11 @@
 <!-- /.container -->
 
 <!-- jQuery -->
-<script src="webjars/jquery/1.11.1/jquery.js"></script>
+<h:outputLink src="webjars/jquery/1.11.1/jquery.js"/>
 
 <!-- Bootstrap Core JavaScript -->
-<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<h:outputLink src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"/>
 
-</body>
+</h:body>
 
 </html>

@@ -4,6 +4,8 @@ import dacstpi.model.Producto;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import java.io.BufferedReader;
@@ -17,7 +19,21 @@ import java.util.ArrayList;
 public class MLListaProductosBean {
 
     ArrayList<Producto> listaProducto = new ArrayList();
+    ArrayList<Producto> indexList = new ArrayList();
     String query = new String();
+
+    @PostConstruct
+    public void init(){
+        query = "Electronica";
+        try {
+            sendGet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        indexList = listaProducto;
+        listaProducto = new ArrayList<>();
+        query = new String();
+    }
 
     // HTTP GET request
     public void sendGet() throws Exception {
@@ -41,7 +57,7 @@ public class MLListaProductosBean {
 //      System.out.println("Response Code : " + responseCode);
 
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream()));
+                new InputStreamReader(con.getInputStream(),"UTF-8"));
         String inputLine;
         StringBuffer response = new StringBuffer();
 
@@ -65,6 +81,7 @@ public class MLListaProductosBean {
             producto.setNombreProducto(explrObject.getString("title"));
             producto.setPrecioUnitarioProducto(explrObject.getDouble("price"));
             producto.setMonedaProducto(explrObject.getString("currency_id"));
+            producto.setImagenProducto(explrObject.getString("thumbnail"));
 
             JSONArray atributos = explrObject.getJSONArray("attributes");
             for (int j = 0; j < atributos.length(); j++) {
@@ -84,6 +101,17 @@ public class MLListaProductosBean {
         }
     }
 
+    public void listaIndex(){
+        query = "Electronica";
+        try {
+            sendGet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        indexList = listaProducto;
+        listaProducto = new ArrayList<>();
+    }
+
     public ArrayList<Producto> getListaProducto() {
         return listaProducto;
     }
@@ -98,5 +126,13 @@ public class MLListaProductosBean {
 
     public void setQuery(String query) {
         this.query = query;
+    }
+
+    public ArrayList<Producto> getIndexList() {
+        return indexList;
+    }
+
+    public void setIndexList(ArrayList<Producto> indexList) {
+        this.indexList = indexList;
     }
 }
